@@ -32,8 +32,8 @@ const MagnifyButton = ({ magState }) => {
   };
 
   const shiftBackground = () => {
-    let shiftX = -(SCALE * xPos) + SCALE * SIZE + SIZE + SIZE / 3 + 10;
-    let shiftY = -(SCALE * yPos) + SCALE * SIZE + 25;
+    let shiftX = -(SCALE * xPos) + SCALE * SIZE + SIZE + SIZE / 3 + 105;
+    let shiftY = -(SCALE * yPos) + SCALE * SIZE + 20;
     magnifyingGlass.current.children[0].style.left = shiftX + "px";
     magnifyingGlass.current.children[0].style.top = shiftY + "px";
   };
@@ -41,7 +41,7 @@ const MagnifyButton = ({ magState }) => {
   const cleanUpFunction = () => {
     magnifyingGlass.current.classList.add("growMag");
     wrapper.current.classList.add("greyWrap");
-  }
+  };
 
   useEffect(() => {
     if (magState && magnifyingGlass.current.children[0]) {
@@ -75,6 +75,7 @@ const MagnifyButton = ({ magState }) => {
             width: "100%",
             height: "100%",
             zIndex: "2",
+            border: "1px solid blue",
           }}>
           <div
             ref={magnifyingGlass}

@@ -22,6 +22,8 @@ import colbert from "./assets/colbertmovie.mp4";
 import sketch2 from "./assets/sketch2.png";
 import agripark from "./assets/agripark1.png";
 import headshot from "./assets/headshot.jpg";
+import spotifyWidget from "../04_Spotify/SpotifyWidget";
+import SpotifyWidget from "../04_Spotify/SpotifyWidget";
 
 const Cover = () => {
   return (
@@ -42,9 +44,7 @@ const Cover = () => {
             gridColumn: "2",
             gridRow: "1 / 3",
           }}>
-          <img
-            src={bazaarAxo}
-          />
+          <img src={bazaarAxo} />
         </div>
 
         <div
@@ -62,9 +62,16 @@ const Cover = () => {
             gridColumn: "1",
             gridRow: "5",
           }}>
-          <img
-            src={chairPrototype}
-          />
+          <img src={chairPrototype} />
+        </div>
+
+        <div
+          style={{
+            gridColumn: "1",
+            gridRow: "5",
+            overflow: "visible",
+          }}>
+          <SpotifyWidget/>
         </div>
 
         <div
@@ -73,20 +80,16 @@ const Cover = () => {
             gridColumn: "7 / 9",
             gridRow: "3 / 6",
           }}>
-          <img
-            src={typologyAxo}
-          />
+          <img src={typologyAxo} />
         </div>
 
         <div
-         className={styles.images}
+          className={styles.images}
           style={{
             gridColumn: "3 / 5",
             gridRow: "3 / 5",
           }}>
-          <img
-            src={axoHostel}
-          />
+          <img src={axoHostel} />
         </div>
 
         <div
@@ -95,10 +98,7 @@ const Cover = () => {
             gridColumn: "7",
             gridRow: "2",
           }}>
-          <img
-            src={mensFashion}
-
-          />
+          <img src={mensFashion} />
         </div>
         <div
           className={styles.images}
@@ -106,9 +106,7 @@ const Cover = () => {
             gridColumn: "1",
             gridRow: "3 / 5",
           }}>
-          <img
-            src={cryptSection}
-          />
+          <img src={cryptSection} />
         </div>
 
         <div
@@ -126,17 +124,15 @@ const Cover = () => {
             gridColumn: "5 / 7",
             gridRow: "3",
           }}>
-          <img src={detriotElevation}/>
-          </div>
+          <img src={detriotElevation} />
+        </div>
         <div
           className={styles.images}
           style={{
             gridColumn: "2",
             gridRow: "4 / 6",
           }}>
-          <img
-            src={dressSection}
-          />
+          <img src={dressSection} />
         </div>
         <div
           className={styles.images}
@@ -144,9 +140,7 @@ const Cover = () => {
             gridColumn: "3 / 5",
             gridRow: "1 / 3",
           }}>
-          <img
-            src={niagaraElevation}
-          />
+          <img src={niagaraElevation} />
         </div>
         <div
           className={styles.images}
@@ -162,9 +156,7 @@ const Cover = () => {
             gridColumn: "5",
             gridRow: "4",
           }}>
-          <img
-            src={sleeve}
-          />
+          <img src={sleeve} />
         </div>
         <div
           className={styles.images}
@@ -172,9 +164,7 @@ const Cover = () => {
             gridColumn: "5 / 7",
             gridRow: "2",
           }}>
-          <img
-            src={patCut}
-          />
+          <img src={patCut} />
         </div>
         <div
           className={styles.images}
@@ -182,9 +172,7 @@ const Cover = () => {
             gridColumn: "1",
             gridRow: "2",
           }}>
-          <img
-            src={sleeve2}
-          />
+          <img src={sleeve2} />
         </div>
         <div
           className={styles.images}
@@ -200,9 +188,7 @@ const Cover = () => {
             gridColumn: "2",
             gridRow: "3",
           }}>
-          <img
-            src={tobs}
-          />
+          <img src={tobs} />
         </div>
         <div
           className={styles.images}
@@ -210,49 +196,41 @@ const Cover = () => {
             gridColumn: "6",
             gridRow: "4",
           }}>
-          <img
-            src={cryptRoof}
-          />
+          <img src={cryptRoof} />
         </div>
-         <div
+        <div
           className={styles.images}
           style={{
             gridColumn: "9",
             gridRow: "5",
           }}>
-          <video height= "100%" width="100%" controls loop autoPlay muted>
+          <video height="100%" width="100%" controls loop autoPlay muted>
             <source src={colbert} type="video/mp4"></source>
           </video>
         </div>
-         <div
+        <div
           className={styles.images}
           style={{
             gridColumn: "9",
             gridRow: "4",
           }}>
-          <img
-            src={sketch2}
-          />
+          <img src={sketch2} />
         </div>
-         <div
+        <div
           className={styles.images}
           style={{
             gridColumn: "9",
             gridRow: "2 / 4",
           }}>
-          <img
-            src={agripark}
-          />
+          <img src={agripark} />
         </div>
-         <div
+        <div
           className={styles.images}
           style={{
             gridColumn: "8",
             gridRow: "1",
           }}>
-          <img
-            src={headshot}
-          />
+          <img src={headshot} />
         </div>
       </div>
     </div>
