@@ -1,0 +1,46 @@
+.grid {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  padding: 10px;
+  gap: 15px;
+}
+
+.images {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgb(255, 255, 255);
+  padding: 10px;
+  align-items: center;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  border-radius: 2px;
+}
+
+@keyframes hoverCard {
+  0% {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  }
+  /* 50% {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  } */
+  100% {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+  }
+}
+
+.images:hover {
+  cursor: pointer;
+  animation-name: hoverCard;
+  animation-duration: 2s;
+  animation-timing-function: ease;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,32 @@
+.growMag {
+  box-shadow: 1px 4px 5px rgba(0, 0, 0, 0.6);
+  transform-origin: center;
+  animation-name: grow;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes grow {
+  from {
+    scale: 0%;
+  }
+  to {
+    scale: 100%;
+  }
+}
+
+.greyWrap {
+  background-color: rgba(0, 0, 0, 0.5);
+  animation-name: greyOut;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes greyOut {
+  from {
+    background-color: transparent;
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
