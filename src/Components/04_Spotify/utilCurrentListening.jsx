@@ -54,9 +54,10 @@ export const processData = async () => {
     const artists = jsonResults.item.artists.map((_artist) => _artist.name).join(", ");
     const albumCover = jsonResults.item.album.images[0].url;
     const spotLink = jsonResults.item.external_urls.spotify;
+    const previewURL = jsonResults.item.preview_url;
     console.log(isPlaying, title, artists, albumCover);
-    return { isPlaying, title, artists, albumCover, spotLink };
+    return { isPlaying, title, artists, albumCover, spotLink, previewURL };
   } else {
-    return { isPlaying: false, title: null, artists: null, albumCover: null, spotLink: null };
+    return { isPlaying: false, title: null, artists: null, albumCover: null, spotLink: null, previewURL: null };
   }
 };

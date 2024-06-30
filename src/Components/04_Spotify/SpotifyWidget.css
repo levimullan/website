@@ -1,17 +1,68 @@
 @keyframes bounce {
   0% {
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 3px 0px;
+    filter: drop-shadow(2px 2px 1px rgba(10, 221, 66, 0.6));
+    transform: scale(1);
   }
   50% {
-    box-shadow: rgba(0, 0, 0, 0.2) 5px 2px 6px 0px;
+    filter: drop-shadow(2px 2px 5px rgba(10, 221, 66, 0.6));
+    transform: scale(1.05);
   }
   100% {
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 3px 0px;
+    filter: drop-shadow(2px 2px 1px rgba(10, 221, 66, 0.6));
+    transform: scale(1);
   }
 }
 
-.spotify {
-  z-index: 1;
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  perspective: 400px; /* Remove this if you don't want the 3D effect */
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  padding: 10px;
+  background-color: #ffffff;
+  animation-name: bounce;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.flip-card-back {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+  padding: 13px;
+  text-overflow: ellipsis;
+  background-color: #25d734;
+  transform: rotateY(180deg);
+}
+
+.images {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -20,10 +71,30 @@
   padding: 10px;
   align-items: center;
   overflow: hidden;
+  box-shadow:
+    rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  border-radius: 2px;
+}
+
+.images:hover {
   cursor: pointer;
-  box-shadow: hsla(107, 91%, 46%, 0.4) 0px 1px 3px 0px;
-  animation-name: bounce;
-  animation-duration: 2s;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
+  animation-name: hoverCard;
+  animation-duration: 1;
+  animation-timing-function: ease;
+}
+
+p {
+  font-size: 0.8em;
+}
+
+svg:hover {
+  color: black;
+  cursor: pointer;
+}
+
+audio {
+  width: 0;
+  height: 0;
+  visibility: hidden;
 }

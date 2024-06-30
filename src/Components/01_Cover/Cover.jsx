@@ -2,7 +2,6 @@ import styles from "./styles.module.css";
 import cryptPlan from "./assets/crypt-plan.png";
 import bazaarAxo from "./assets/bazaar-axo.png";
 import typologyTraverse from "./assets/typology-traverse.png";
-import chairPrototype from "./assets/chair-prototype.png";
 import typologyAxo from "./assets/typology-axo.png";
 import axoHostel from "./assets/hostel-axo.png";
 import mensFashion from "./assets/mens-fashion.png";
@@ -22,7 +21,6 @@ import colbert from "./assets/colbertmovie.mp4";
 import sketch2 from "./assets/sketch2.png";
 import agripark from "./assets/agripark1.png";
 import headshot from "./assets/headshot.jpg";
-import spotifyWidget from "../04_Spotify/SpotifyWidget";
 import SpotifyWidget from "../04_Spotify/SpotifyWidget";
 
 const Cover = () => {
@@ -57,21 +55,13 @@ const Cover = () => {
         </div>
 
         <div
-          className={styles.images}
           style={{
-            gridColumn: "1",
-            gridRow: "5",
-          }}>
-          <img src={chairPrototype} />
-        </div>
-
-        <div
-          style={{
+            position: "relative",
             gridColumn: "1",
             gridRow: "5",
             overflow: "visible",
           }}>
-          <SpotifyWidget/>
+          <SpotifyWidget />
         </div>
 
         <div
