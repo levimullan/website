@@ -41,14 +41,26 @@ function SpotifyWidget() {
 
   const playAudio = (id) => {
     if (navigator.userActivation.hasBeenActive) {
-      document.getElementById(id).play();
+      const audio = document.getElementById(id);
+      audio.volume = 0.01;
+      audio.play();
+      increaseVol(audio);
     }
-    console.log(id);
   };
+
+  function increaseVol(audio) {
+    console.log(audio.volume);
+    setTimeout(() => {
+      if (audio.volume < 0.2) {
+        audio.volume = audio.volume + 0.005;
+        console.log("new vol", audio.volume);
+        increaseVol(audio);
+      }
+    }, 300);
+  }
 
   const pauseAudio = (id) => {
     document.getElementById(id).pause();
-    console.log(id);
   };
 
   if (isPlaying) {
@@ -63,20 +75,22 @@ function SpotifyWidget() {
             <div className="flip-card-back">
               <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <p>Now Playing </p>
+                <br />
+                <br />
               </div>
 
-              <div>
-                <audio id="sound" controls src={previewLink}></audio>
-                <a
-                  href={spotifyLink}
-                  onMouseEnter={() => playAudio("sound")}
-                  onMouseLeave={() => pauseAudio("sound")}
-                  target="_blank">
-                  <strong>{song}</strong>
-                </a>
-                <br />
-                <i>{artist}</i>
-              </div>
+              <audio id="sound" controls src={previewLink}></audio>
+              <a
+                href={spotifyLink}
+                onMouseEnter={() => playAudio("sound")}
+                onMouseLeave={() => pauseAudio("sound")}
+                target="_blank">
+                <p className="title">{song}</p>
+              </a>
+              <br />
+              <p>
+                <p className="artist">{artist}</p>
+              </p>
             </div>
           </div>
         </div>

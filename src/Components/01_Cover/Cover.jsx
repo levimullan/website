@@ -22,19 +22,27 @@ import sketch2 from "./assets/sketch2.png";
 import agripark from "./assets/agripark1.png";
 import headshot from "./assets/headshot.jpg";
 import SpotifyWidget from "../04_Spotify/SpotifyWidget";
+import { useContext } from "react";
+import { PageContext } from "../../App.jsx";
+import Flipper from "../Archive_Components/Flipper/flipper.jsx";
 
 const Cover = () => {
+
+  const page = useContext(PageContext);
+
   return (
     <div>
       <div className={styles.grid}>
-        <div
+        {/* <div
           className={styles.images}
           style={{
             gridColumn: "1",
             gridRow: "1",
           }}>
           <img src={cryptPlan} />
-        </div>
+        </div> */}
+
+        <Flipper toD={cryptPlan} />
 
         <div
           className={styles.images}
@@ -56,10 +64,8 @@ const Cover = () => {
 
         <div
           style={{
-            position: "relative",
             gridColumn: "1",
             gridRow: "5",
-            overflow: "visible",
           }}>
           <SpotifyWidget />
         </div>
