@@ -67,7 +67,7 @@ function SpotifyWidget() {
       <div className="flip-card">
         <div className="flip-card-inner">
           <div className="flip-card-front"
-            style={isPlaying ? { animation: "bounce" } : {}}
+            style={isPlaying ? { animationName: "bounce" } : {}}
             ref={containerRef}>
             <img src={isPlaying ? albumCoverUrl : livingRoom} style={{ width: "100%", height: "100%" }} />
           </div>

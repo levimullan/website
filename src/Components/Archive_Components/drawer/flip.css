@@ -34,8 +34,9 @@
 
 .new-flip-card-back {
   height: 100%;
+  width: 100%;
   justify-content: space-between;
-  background-color: snow;
+  background: linear-gradient(106.5deg, rgba(255, 215, 185, 0.91) 23%, rgba(223, 159, 247, 0.8) 93%);
   /* border: 2px solid white; */
   /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
 }

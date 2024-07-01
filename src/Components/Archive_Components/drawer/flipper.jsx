@@ -41,7 +41,7 @@ const flipper = ({ col, row, toDisplay }) => {
         className="new-flip-card-inner"
         style={{
           transform: flipped ? `${transformOp}` : "",
-          transition: "transform 1s",
+          transition: "transform 1.5s",
           transformStyle: "preserve-3d",
         }}>
         <div className="new-flip-card-front">
