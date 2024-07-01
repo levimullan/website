@@ -24,7 +24,8 @@ import headshot from "./assets/headshot.jpg";
 import SpotifyWidget from "../04_Spotify/SpotifyWidget";
 import { useContext } from "react";
 import { PageContext } from "../../App.jsx";
-import Flipper from "../Archive_Components/Flipper/flipper.jsx";
+import Flipper from "../Archive_Components/drawer/flipper.jsx";
+import chairPrototype from "../01_Cover/assets/chair-prototype.png";
 
 const Cover = () => {
 
@@ -33,34 +34,29 @@ const Cover = () => {
   return (
     <div>
       <div className={styles.grid}>
-        {/* <div
-          className={styles.images}
-          style={{
-            gridColumn: "1",
-            gridRow: "1",
-          }}>
-          <img src={cryptPlan} />
-        </div> */}
-
-        <Flipper toD={cryptPlan} />
-
-        <div
-          className={styles.images}
-          style={{
-            gridColumn: "2",
-            gridRow: "1 / 3",
-          }}>
-          <img src={bazaarAxo} />
-        </div>
-
-        <div
-          className={styles.images}
-          style={{
-            gridColumn: "3 / 7",
-            gridRow: "5",
-          }}>
-          <img src={typologyTraverse} />
-        </div>
+        <Flipper col={2} row={"1 / 3"} toDisplay={bazaarAxo} />
+        <Flipper col={"3 / 7"} row={5} toDisplay={typologyTraverse} />
+        <Flipper col={"7 / 9"} row={"3 / 6"} toDisplay={typologyAxo} />
+        <Flipper col={"3 / 5"} row={"3 / 5"} toDisplay={axoHostel} />
+        <Flipper col={7} row={2} toDisplay={mensFashion} />
+        <Flipper col={1} row={"3 / 5"} toDisplay={cryptSection} />
+        <Flipper col={9} row={1} toDisplay={wallSection} />
+        <Flipper col={"5 / 7"} row={3} toDisplay={detriotElevation} />
+        <Flipper col={2} row={"4 / 6"} toDisplay={dressSection} />
+        <Flipper col={"3 / 5"} row={"1 / 3"} toDisplay={niagaraElevation} />
+        <Flipper col={"5 / 8"} row={1} toDisplay={metroAxo} />
+        <Flipper col={5} row={4} toDisplay={sleeve} />
+        <Flipper col={"5 / 7"} row={2} toDisplay={patCut} />
+        <Flipper col={1} row={2} toDisplay={sleeve2} />
+        <Flipper col={8} row={2} toDisplay={icons} />
+        <Flipper col={2} row={3} toDisplay={tobs} />
+        <Flipper col={6} row={4} toDisplay={cryptRoof} />
+        <Flipper col={9} row={5} toDisplay={colbert} />
+        <Flipper col={9} row={4} toDisplay={sketch2} />
+        <Flipper col={9} row={" 2 / 4"} toDisplay={agripark} />
+        <Flipper col={8} row={1} toDisplay={headshot} />
+        <Flipper col={1} row={1} toDisplay={cryptPlan} />
+        <Flipper col={9} row={5} toDisplay={chairPrototype} />
 
         <div
           style={{
@@ -68,165 +64,6 @@ const Cover = () => {
             gridRow: "5",
           }}>
           <SpotifyWidget />
-        </div>
-
-        <div
-          className={styles.images}
-          style={{
-            gridColumn: "7 / 9",
-            gridRow: "3 / 6",
-          }}>
-          <img src={typologyAxo} />
-        </div>
-
-        <div
-          className={styles.images}
-          style={{
-            gridColumn: "3 / 5",
-            gridRow: "3 / 5",
-          }}>
-          <img src={axoHostel} />
-        </div>
-
-        <div
-          className={styles.images}
-          style={{
-            gridColumn: "7",
-            gridRow: "2",
-          }}>
-          <img src={mensFashion} />
-        </div>
-        <div
-          className={styles.images}
-          style={{
-            gridColumn: "1",
-            gridRow: "3 / 5",
-          }}>
-          <img src={cryptSection} />
-        </div>
-
-        <div
-          className={styles.images}
-          style={{
-            gridColumn: "9",
-            gridRow: "1",
-          }}>
-          <img src={wallSection} />
-        </div>
-
-        <div
-          className={styles.images}
-          style={{
-            gridColumn: "5 / 7",
-            gridRow: "3",
-          }}>
-          <img src={detriotElevation} />
-        </div>
-        <div
-          className={styles.images}
-          style={{
-            gridColumn: "2",
-            gridRow: "4 / 6",
-          }}>
-          <img src={dressSection} />
-        </div>
-        <div
-          className={styles.images}
-          style={{
-            gridColumn: "3 / 5",
-            gridRow: "1 / 3",
-          }}>
-          <img src={niagaraElevation} />
-        </div>
-        <div
-          className={styles.images}
-          style={{
-            gridColumn: "5 / 8",
-            gridRow: "1",
-          }}>
-          <img src={metroAxo} />
-        </div>
-        <div
-          className={styles.images}
-          style={{
-            gridColumn: "5",
-            gridRow: "4",
-          }}>
-          <img src={sleeve} />
-        </div>
-        <div
-          className={styles.images}
-          style={{
-            gridColumn: "5 / 7",
-            gridRow: "2",
-          }}>
-          <img src={patCut} />
-        </div>
-        <div
-          className={styles.images}
-          style={{
-            gridColumn: "1",
-            gridRow: "2",
-          }}>
-          <img src={sleeve2} />
-        </div>
-        <div
-          className={styles.images}
-          style={{
-            gridColumn: "8",
-            gridRow: "2",
-          }}>
-          <img src={icons} />
-        </div>
-        <div
-          className={styles.images}
-          style={{
-            gridColumn: "2",
-            gridRow: "3",
-          }}>
-          <img src={tobs} />
-        </div>
-        <div
-          className={styles.images}
-          style={{
-            gridColumn: "6",
-            gridRow: "4",
-          }}>
-          <img src={cryptRoof} />
-        </div>
-        <div
-          className={styles.images}
-          style={{
-            gridColumn: "9",
-            gridRow: "5",
-          }}>
-          <video height="100%" width="100%" controls loop autoPlay muted>
-            <source src={colbert} type="video/mp4"></source>
-          </video>
-        </div>
-        <div
-          className={styles.images}
-          style={{
-            gridColumn: "9",
-            gridRow: "4",
-          }}>
-          <img src={sketch2} />
-        </div>
-        <div
-          className={styles.images}
-          style={{
-            gridColumn: "9",
-            gridRow: "2 / 4",
-          }}>
-          <img src={agripark} />
-        </div>
-        <div
-          className={styles.images}
-          style={{
-            gridColumn: "8",
-            gridRow: "1",
-          }}>
-          <img src={headshot} />
         </div>
       </div>
     </div>

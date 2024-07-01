@@ -1,8 +1,6 @@
 import "./SpotifyWidget.css";
-import SpotLogo from "./assets/spotify-icon.svg";
 import { useRef, useState, useEffect } from "react";
 import { processData } from "./utilCurrentListening";
-import chairPrototype from "../01_Cover/assets/chair-prototype.png";
 
 function SpotifyWidget() {
   const [isPlaying, setisPlaying] = useState(false);
@@ -63,7 +61,7 @@ function SpotifyWidget() {
     document.getElementById(id).pause();
   };
 
-  if (isPlaying) {
+
     return (
       <>
         <div className="flip-card">
@@ -88,21 +86,12 @@ function SpotifyWidget() {
                 <p className="title">{song}</p>
               </a>
               <br />
-              <p>
-                <p className="artist">{artist}</p>
-              </p>
+              <p className="artist">{artist}</p>
             </div>
           </div>
         </div>
       </>
     );
-  } else {
-    return (
-      <div className="images">
-        <img src={chairPrototype} />
-      </div>
-    );
-  }
 }
 
 export default SpotifyWidget;

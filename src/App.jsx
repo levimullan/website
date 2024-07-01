@@ -27,7 +27,7 @@ function App() {
     <PageContext.Provider value={page}>
       <div className="app">
         <Magnify magState={magnifyState} />
-        <Cover />
+        <Cover setter={setPage} />
       </div>
     </PageContext.Provider>
   );

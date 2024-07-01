@@ -1,17 +1,18 @@
 import "./flip.css";
 import React from "react";
 
-const flipper = (img) => {
+const flipper = ({ col, row, toDisplay }) => {
+  
   return (
     <div
       className="new-flip-card"
       style={{
-        gridColumn: "1",
-        gridRow: "1",
+        gridColumn: `${col}`,
+        gridRow: `${row}`,
       }}>
       <div className="new-flip-card-inner">
         <div className="new-flip-card-front">
-          <img src={img} />
+          <img src={toDisplay} />
         </div>
         <div className="new-flip-card-back"></div>
       </div>
