@@ -19,42 +19,41 @@ import icons from "./assets/icons.png";
 import tobs from "./assets/tobs.png";
 import sketch2 from "./assets/sketch2.png";
 import agripark from "./assets/agripark1.png";
-import headshot from "./assets/headshot.jpg";
 import { useContext, useEffect } from "react";
 import { PageContext } from "../../App.jsx";
 import Flipper from "../Tools/Flipper/flipper.jsx";
 import chairPrototype from "../01_Cover/assets/chair-prototype.png";
-import ProjectDescriptions from "../ProjectDescriptions.jsx"
 
 
 const Cover = ({setter}) => {
 
   const page = useContext(PageContext);
 
+
   return (
     <div className={styles.grid}>
-      <Flipper col={1} row={"1 / 3"} toDisplay={bazaarAxo} textContent={ProjectDescriptions[0]} />
-      <Flipper col={"2 / 6"} row={5} toDisplay={typologyTraverse} textContent={ProjectDescriptions[0]} />
-      <Flipper col={"6 / 8"} row={"3 / 6"} toDisplay={typologyAxo} textContent={ProjectDescriptions[0]} />
-      <Flipper col={"2 / 4"} row={"3 / 5"} toDisplay={axoHostel} textContent={ProjectDescriptions[0]} />
-      <Flipper col={6} row={2} toDisplay={mensFashion} />
+      <Flipper col={1} row={"1 / 3"} toDisplay={bazaarAxo} project={0} />
+      <Flipper col={"2 / 6"} row={5} toDisplay={typologyTraverse} project={6}  />
+      <Flipper col={"6 / 8"} row={"3 / 6"} toDisplay={typologyAxo} project={6} />
+      <Flipper col={"2 / 4"} row={"3 / 5"} toDisplay={axoHostel} project={10} />
+      <Flipper col={6} row={2} toDisplay={mensFashion} project={0}  />
       {/* <Flipper col={1} row={"3 / 5"} toDisplay={cryptSection} /> */}
-      <Flipper col={8} row={1} toDisplay={wallSection} textContent={ProjectDescriptions[0]} />
-      <Flipper col={"4 / 6"} row={3} toDisplay={detriotElevation} textContent={ProjectDescriptions[0]} />
-      <Flipper col={1} row={"4 / 6"} toDisplay={dressSection} textContent={ProjectDescriptions[0]} />
-      <Flipper col={"2 / 4"} row={"1 / 3"} toDisplay={niagaraElevation} textContent={ProjectDescriptions[0]} />
-      <Flipper col={"4 / 7"} row={1} toDisplay={metroAxo} textContent={ProjectDescriptions[0]} />
-      <Flipper col={4} row={4} toDisplay={sleeve} textContent={ProjectDescriptions[0]} />
-      <Flipper col={"4 / 6"} row={2} toDisplay={patCut} textContent={ProjectDescriptions[0]} />
-      {/* <Flipper col={1} row={2} toDisplay={sleeve2} textContent={ProjectDescriptions[0]}/> */}
-      <Flipper col={7} row={2} toDisplay={icons} textContent={ProjectDescriptions[0]} />
-      <Flipper col={1} row={3} toDisplay={tobs} textContent={ProjectDescriptions[0]} />
-      <Flipper col={5} row={4} toDisplay={cryptRoof} textContent={ProjectDescriptions[0]} />
-      <Flipper col={8} row={4} toDisplay={sketch2} textContent={ProjectDescriptions[0]} />
-      <Flipper col={8} row={" 2 / 4"} toDisplay={agripark} />
-      <Flipper col={8} row={1} toDisplay={sleeve2} textContent={ProjectDescriptions[0]} />
-      <Flipper col={7} row={1} toDisplay={cryptPlan} textContent={ProjectDescriptions[0]} />
-      <Flipper col={8} row={5} toDisplay={chairPrototype} textContent={ProjectDescriptions[0]} />
+      {/* <Flipper col={8} row={1} toDisplay={wallSection} project={0}  /> */}
+      <Flipper col={"4 / 6"} row={3} toDisplay={detriotElevation} project={1}  />
+      <Flipper col={1} row={"4 / 6"} toDisplay={dressSection} project={0}  />
+      <Flipper col={"2 / 4"} row={"1 / 3"} toDisplay={niagaraElevation} project={3}  />
+      <Flipper col={"4 / 7"} row={1} toDisplay={metroAxo} project={4}  />
+      <Flipper col={4} row={4} toDisplay={sleeve} project={0}  />
+      <Flipper col={"4 / 6"} row={2} toDisplay={patCut} project={0}  />
+      {/* <Flipper col={1} row={2} toDisplay={sleeve2} project={0} /> */}
+      <Flipper col={7} row={2} toDisplay={icons} project={11}  />
+      <Flipper col={1} row={3} toDisplay={tobs} project={7}  />
+      <Flipper col={5} row={4} toDisplay={cryptRoof} project={5} />
+      <Flipper col={8} row={4} toDisplay={sketch2} project={9} />
+      <Flipper col={8} row={" 2 / 4"} toDisplay={agripark} project={4}  />
+      <Flipper col={8} row={1} toDisplay={sleeve2} project={0}  />
+      <Flipper col={7} row={1} toDisplay={cryptPlan} project={5}  />
+      <Flipper col={8} row={5} toDisplay={chairPrototype} project={8}  />
     </div>
   );
 };

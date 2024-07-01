@@ -14,3 +14,31 @@
   overflow: hidden;
 }
 
+.tools {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns:  auto auto;
+  grid-template-rows: auto auto;
+  gap: 15px;
+}
+
+.tool:hover {
+  transition: transform 0.5s;
+  transform: scale(1.05);
+}
+
+svg {
+  transform: scale(1.6);
+}
+
+.tool {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: snow;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+

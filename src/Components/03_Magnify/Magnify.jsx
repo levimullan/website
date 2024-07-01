@@ -32,8 +32,8 @@ const MagnifyButton = ({ magState }) => {
   };
 
   const shiftBackground = () => {
-    let shiftX = -(SCALE * xPos) + SCALE * SIZE + SIZE + SIZE / 3 + 105;
-    let shiftY = -(SCALE * yPos) + SCALE * SIZE + 20;
+    let shiftX = -(SCALE * xPos) + SCALE * SIZE + SIZE + SIZE / 3 + 10;
+    let shiftY = -(SCALE * yPos) + SCALE * SIZE + 25;
     magnifyingGlass.current.children[0].style.left = shiftX + "px";
     magnifyingGlass.current.children[0].style.top = shiftY + "px";
   };

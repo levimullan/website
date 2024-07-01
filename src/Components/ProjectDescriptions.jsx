@@ -1,6 +1,4 @@
-import React from "react";
-
-const Text = [
+const ProjectDescriptions = [
   {
     title: "Coffee Houses & Arcades",
     subTitle: "A forensic inquiry into the myths of modernity",
@@ -44,12 +42,6 @@ const Text = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga quo labore nostrum odit aut assumenda. Perspiciatis blanditiis sequi unde consectetur accusantium. Odio voluptates adipisci fuga quod, quas ipsam facere enim.",
   },
   {
-    title: "214 Greenwood",
-    subTitle: "Layering Urban Types",
-    brief:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga quo labore nostrum odit aut assumenda. Perspiciatis blanditiis sequi unde consectetur accusantium. Odio voluptates adipisci fuga quod, quas ipsam facere enim.",
-  },
-  {
     title: "Tobermory",
     subTitle: "Marvin Windows Competition",
     brief:
@@ -67,7 +59,19 @@ const Text = [
     brief:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga quo labore nostrum odit aut assumenda. Perspiciatis blanditiis sequi unde consectetur accusantium. Odio voluptates adipisci fuga quod, quas ipsam facere enim.",
   },
+  {
+    title: "RP23",
+    subTitle: "Chilean Hostel",
+    brief:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga quo labore nostrum odit aut assumenda. Perspiciatis blanditiis sequi unde consectetur accusantium. Odio voluptates adipisci fuga quod, quas ipsam facere enim.",
+  },
+  {
+    title: "About",
+    subTitle: "Statement & CV",
+    brief:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga quo labore nostrum odit aut assumenda. Perspiciatis blanditiis sequi unde consectetur accusantium. Odio voluptates adipisci fuga quod, quas ipsam facere enim.",
+  },
 ];
 
-export default Text;
+export default ProjectDescriptions;
 

@@ -1,10 +1,5 @@
-import SpotifyWidget from "../04_Spotify/SpotifyWidget";
 import TextAccordian from "../Tools/TextAccordian/TextAccordian";
-import Flipper from "../Tools/Flipper/flipper.jsx";
-import headshot from "./assets/headshot.jpg";
-import { HiOutlineMail } from "react-icons/hi";
-import { RiSearchEyeLine, RiLinkedinLine } from "react-icons/ri";
-import { FiGithub } from "react-icons/fi";
+
 
 
 import "./Menu.css";
@@ -34,24 +29,6 @@ const Menu = () => {
           />
           <TextAccordian title="Ant Stories" />
         </div>
-      </div>
-      <div className="tools">
-        <div className="tool">
-          <RiSearchEyeLine />
-        </div>
-        <div className="tool">
-          <HiOutlineMail />
-        </div>
-        <div className="tool">
-          <RiLinkedinLine/>
-        </div>
-        <div className="tool">
-          <FiGithub/>
-        </div>
-      </div>
-      <Flipper col={1} row={4} toDisplay={headshot} />
-      <div style={{ gridRow: "5" }}>
-        <SpotifyWidget />
       </div>
     </div>
   );

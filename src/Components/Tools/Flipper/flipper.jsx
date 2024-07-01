@@ -1,16 +1,24 @@
 import "./flip.css";
+import ProjectDescriptions from "../../ProjectDescriptions.jsx";
 import React, { useEffect, useState, useRef } from "react";
+import { BsBoxArrowInRight } from "react-icons/bs";
 
-const flipper = ({ col, row, toDisplay, textContent }) => {
+const flipper = ({ col, row, toDisplay, project }) => {
   const [flipped, setFlipped] = useState(false);
   const [transformOp, setTransformOp] = useState("none");
   const [perspectiveVal, setPerspectiveVal] = useState("1000");
+  const [cardProject, setCardProject] = useState(ProjectDescriptions[project]);
+  const [smallCard, setSmallCard] = useState(false);
+  const [mouseEnter, setMouseEnter] = useState(null);
   const container = useRef(null);
   const image = useRef(null);
 
   async function getFlipDir() {
     let w = image.current.width;
     let h = image.current.height;
+    if (w < 150) {
+      setSmallCard(true);
+    }
     if (w < 150 && h < 150) {
       setPerspectiveVal("300");
     }
@@ -26,7 +34,7 @@ const flipper = ({ col, row, toDisplay, textContent }) => {
 
   useEffect(() => {
     getFlipDir();
-    console.log(textContent);
+    console.log(cardProject);
   }, []);
 
   return (
@@ -55,7 +63,20 @@ const flipper = ({ col, row, toDisplay, textContent }) => {
           <img className="flipimage" ref={image} src={toDisplay} />
         </div>
         <div className="new-flip-card-back" style={{ transform: `${transformOp}` }}>
-          <h1></h1>
+          <div>
+            <h2 style={smallCard ? { fontSize: "0.9em" } : {}}>{cardProject.title}</h2>
+            <i style={smallCard ? { fontSize: "0.8em" } : {}}>{cardProject.subTitle}</i>
+          </div>
+          <BsBoxArrowInRight
+            className="icon"
+            style={mouseEnter ? { color: "black", cursor: "pointer" } : { color: "white" }}
+            onMouseEnter={() => {
+              setMouseEnter(true);
+            }}
+            onMouseLeave={() => {
+              setMouseEnter(false);
+            }}
+          />
         </div>
       </div>
     </div>
