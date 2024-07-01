@@ -13,7 +13,6 @@
   }
 }
 
-
 .flip-card {
   background-color: transparent;
   width: 100%;
@@ -32,7 +31,7 @@
 }
 
 .flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg) ;
+  transform: rotateY(180deg);
 }
 
 .flip-card-front,
@@ -46,11 +45,11 @@
 
 .flip-card-front {
   padding: 10px;
-  background-color: #ffffff;
+  background-color: snow;
   animation-duration: 2s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .flip-card-back {
@@ -61,7 +60,7 @@
   color: white;
   padding: 13px;
   background-image: linear-gradient(to top, #15c056 0%, #b4f500 100%);
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transform: rotateY(180deg);
 }
 
@@ -94,6 +93,8 @@
 .artist {
   font-size: 0.9em;
   font-weight: lighter;
+  -webkit-line-clamp: 1; /* number of lines to show */
+  line-clamp: 1;
 }
 
 audio {

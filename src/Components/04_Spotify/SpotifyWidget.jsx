@@ -39,7 +39,7 @@ function SpotifyWidget() {
   }, []);
 
   const playAudio = (id) => {
-    if (navigator.userActivation.hasBeenActive) {
+    if (navigator.userActivation.hasBeenActive || navigator.userActivation.isActive) {
       const audio = document.getElementById(id);
       audio.volume = 0.01;
       audio.play();
@@ -88,7 +88,7 @@ function SpotifyWidget() {
               {isPlaying ? <p className="title">{song}</p> : <p className="title">Nothing Playing.</p>}
             </a>
             <br />
-            {isPlaying ? <p className="artist">{artist}</p> : <p className="artist">Check back later!</p>}
+            {isPlaying ? <p className="artist">{artist}</p> : <p className="artist">Check back later.</p>}
           </div>
         </div>
       </div>

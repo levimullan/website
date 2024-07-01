@@ -1,0 +1,31 @@
+.accordian-container {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  border: 1px dashed pink;
+}
+
+.accordian-text {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: Helvetica;
+  font-size: 1rem;
+  color: lightgray;
+  font-weight: lighter;
+}
+
+.accordian-text:hover {
+  color: darkgray;
+  cursor: pointer;
+}
+
+.accordian-text::selection {
+  cursor: pointer;
+}
+
+.subs p {
+  font-weight: lighter;
+  color: rgb(0, 0, 0);
+  margin-left: 10px;
+}

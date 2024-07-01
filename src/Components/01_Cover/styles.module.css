@@ -1,39 +1,12 @@
 .grid {
+  grid-column: 2 / 10;
+  grid-row: 1 / 6;
+  width: 100%;
   height: 100%;
-  flex: 0 0;
-  width: 1550px;
-  height: 825px;
   display: grid;
-  grid-template-columns: repeat(9, 1fr);
+  grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(5, 1fr);
-  padding: 10px;
   gap: 15px;
-}
-
-.images {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-color: rgb(255, 255, 255);
-  padding: 10px;
-  align-items: center;
-  overflow: hidden;
-  box-shadow:
-    rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
-    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
-  border-radius: 2px;
-}
-
-@keyframes hoverCard {
-  0% {
-    box-shadow:
-      rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
-      rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
-  }
-  100% {
-    box-shadow: rgba(0, 0, 0, 0.5) 0px 25px 50px -12px;
-  }
 }
 
 .images:hover {

@@ -1,15 +1,14 @@
 import "./App.css";
 import { useState, useEffect, createContext } from "react";
+import Menu from "./Components/00_Menu/Menu";
 import Cover from "./Components/01_Cover/Cover";
 import Magnify from "./Components/03_Magnify/Magnify";
 
 export const PageContext = createContext();
 
 function App() {
-  
   const [page, setPage] = useState(null);
   const [magnifyState, setMagnifyState] = useState(false);
-
 
   const handleKeyPress = (event) => {
     if (event.key === "Escape") {
@@ -26,8 +25,11 @@ function App() {
   return (
     <PageContext.Provider value={page}>
       <div className="app">
+        <div className="app-grid">
+          <Menu />
+            <Cover setter={setPage} />
+        </div>
         <Magnify magState={magnifyState} />
-        <Cover setter={setPage} />
       </div>
     </PageContext.Provider>
   );

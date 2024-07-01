@@ -1,0 +1,53 @@
+.sidebar {
+  grid-column: 1;
+  grid-row: 1 / 6;
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  gap: 15px;
+}
+
+.menu {
+  grid-row: 1 / 3;
+}
+
+.menu-contents {
+min-height: 50%;
+padding: 10px 10px 30px 10px;
+background-color: snow;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.subs {
+  overflow-y: hidden;
+}
+
+.tools {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns:  auto auto;
+  grid-template-rows: auto auto;
+  gap: 15px;
+}
+
+.tool:hover {
+  transition: transform 0.5s;
+  transform: scale(1.05);
+}
+
+svg {
+  transform: scale(1.6);
+}
+
+.tool {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: snow;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+
+
