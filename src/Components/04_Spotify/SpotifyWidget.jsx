@@ -1,4 +1,5 @@
 import "./SpotifyWidget.css";
+import livingRoom from "../01_Cover/assets/living-room.png";
 import { useRef, useState, useEffect } from "react";
 import { processData } from "./utilCurrentListening";
 
@@ -61,37 +62,38 @@ function SpotifyWidget() {
     document.getElementById(id).pause();
   };
 
+  return (
+    <>
+      <div className="flip-card">
+        <div className="flip-card-inner">
+          <div className="flip-card-front"
+            style={isPlaying ? { animation: "bounce" } : {}}
+            ref={containerRef}>
+            <img src={isPlaying ? albumCoverUrl : livingRoom} style={{ width: "100%", height: "100%" }} />
+          </div>
 
-    return (
-      <>
-        <div className="flip-card">
-          <div className="flip-card-inner">
-            <div className="flip-card-front" ref={containerRef}>
-              <img src={albumCoverUrl} style={{ width: "100%", height: "100%" }} />
-            </div>
-
-            <div className="flip-card-back">
-              <div style={{ display: "flex", justifyContent: "space-between" }}>
-                <p>Now Playing </p>
-                <br />
-                <br />
-              </div>
-
-              <audio id="sound" controls src={previewLink}></audio>
-              <a
-                href={spotifyLink}
-                onMouseEnter={() => playAudio("sound")}
-                onMouseLeave={() => pauseAudio("sound")}
-                target="_blank">
-                <p className="title">{song}</p>
-              </a>
+          <div className="flip-card-back">
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <p>Current track: </p>
               <br />
-              <p className="artist">{artist}</p>
+              <br />
             </div>
+
+            <audio id="sound" controls src={previewLink}></audio>
+            <a
+              href={spotifyLink}
+              onMouseEnter={() => playAudio("sound")}
+              onMouseLeave={() => pauseAudio("sound")}
+              target="_blank">
+              {isPlaying ? <p className="title">{song}</p> : <p className="title">Nothing Playing.</p>}
+            </a>
+            <br />
+            {isPlaying ? <p className="artist">{artist}</p> : <p className="artist">Check back later!</p>}
           </div>
         </div>
-      </>
-    );
+      </div>
+    </>
+  );
 }
 
 export default SpotifyWidget;

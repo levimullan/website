@@ -8,7 +8,7 @@
     transform: scale(1.02);
   }
   100% {
-    filter: drop-shadow(2px 2px 1px rgba(10, 221, 66, 0.6));
+    filter: drop-shadow(2px 2px 1px #0add4299);
     transform: scale(1);
   }
 }
@@ -19,7 +19,6 @@
   height: 100%;
   perspective: 400px;
   background-color: black;
-
 }
 
 .flip-card-inner {
@@ -28,7 +27,6 @@
   height: 100%;
   transition: transform 0.8s;
   transform-style: preserve-3d;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 .flip-card:hover .flip-card-inner {
   transform: rotateY(180deg);
@@ -46,10 +44,10 @@
 .flip-card-front {
   padding: 10px;
   background-color: #ffffff;
-  animation-name: bounce;
   animation-duration: 2s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
+  box-shadow: 0 4px 8px 0 #0add4299;
 }
 
 .flip-card-back {

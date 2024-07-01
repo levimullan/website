@@ -17,15 +17,16 @@ import patCut from "./assets/1830pat.png";
 import sleeve2 from "./assets/sleeve-2.png";
 import icons from "./assets/icons.png";
 import tobs from "./assets/tobs.png";
-import colbert from "./assets/colbertmovie.mp4";
 import sketch2 from "./assets/sketch2.png";
 import agripark from "./assets/agripark1.png";
 import headshot from "./assets/headshot.jpg";
 import SpotifyWidget from "../04_Spotify/SpotifyWidget";
+import welcome from "./assets/welcome.png";
 import { useContext } from "react";
 import { PageContext } from "../../App.jsx";
 import Flipper from "../Archive_Components/drawer/flipper.jsx";
 import chairPrototype from "../01_Cover/assets/chair-prototype.png";
+
 
 const Cover = () => {
 
