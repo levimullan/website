@@ -4,7 +4,7 @@
   background-color: snow;
   width: 100%;
   height: 100%;
-  perspective: 5000px;
+  perspective: 2000px;
 }
 
 .new-flip-card-inner {

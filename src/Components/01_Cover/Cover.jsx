@@ -51,7 +51,6 @@ const Cover = () => {
         <Flipper col={8} row={2} toDisplay={icons} />
         <Flipper col={2} row={3} toDisplay={tobs} />
         <Flipper col={6} row={4} toDisplay={cryptRoof} />
-        <Flipper col={9} row={5} toDisplay={colbert} />
         <Flipper col={9} row={4} toDisplay={sketch2} />
         <Flipper col={9} row={" 2 / 4"} toDisplay={agripark} />
         <Flipper col={8} row={1} toDisplay={headshot} />

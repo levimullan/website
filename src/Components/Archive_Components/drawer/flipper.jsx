@@ -3,24 +3,29 @@ import React, { useEffect, useState, useRef } from "react";
 
 const flipper = ({ col, row, toDisplay }) => {
   const [flipped, setFlipped] = useState(false);
-  const [flipDir, setFlipDir] = useState(false);
+  const [transformOp, setTransformOp] = useState("none");
+  const container = useRef(null);
   const image = useRef(null);
-  // let transformOp;
 
-  // async function getFlipDir() {
-  //   const img = new Image();
-  //   img.src = toDisplay;
-  //   if (img.width > img.height) {
-  //     setFlipDir(false);
-  //   } else {
-  //     setFlipDir(true);
-  //   }
-  //   transformOp = flipDir ? "rotateY(180deg)" : "rotateX(180deg)";
-  //   console.log(transformOp);
-  // }
+
+  async function getFlipDir() {
+    let ratio = Math.round(Math.abs(image.current.width / image.current.height) * 10) / 10;
+    if (ratio < 1.6) {
+      setTransformOp ("rotateY(180deg)");
+      console.log(transformOp);
+    } else {
+      setTransformOp("rotateX(180deg)");
+      console.log(transformOp);
+    }
+  }
+
+  useEffect(() => {
+    getFlipDir();
+  },[])
 
   return (
     <div
+      ref={container}
       className="new-flip-card"
       onMouseEnter={() => {
         setFlipped(true);
@@ -35,14 +40,14 @@ const flipper = ({ col, row, toDisplay }) => {
       <div
         className="new-flip-card-inner"
         style={{
-          transform: flipped ? "rotateX(180deg)" : "",
+          transform: flipped ? `${transformOp}` : "",
           transition: "transform 1s",
           transformStyle: "preserve-3d",
         }}>
         <div className="new-flip-card-front">
-          <img class="flipimage" reft={image} src={toDisplay} />
+          <img className="flipimage" ref={image} src={toDisplay} />
         </div>
-        <div className="new-flip-card-back" style={{ transform: "rotateX(180deg)" }}></div>
+        <div className="new-flip-card-back" style={{ transform: `${transformOp}` }}></div>
       </div>
     </div>
   );
