@@ -13,8 +13,17 @@
   font-weight: lighter;
 }
 
-.accordian-text:hover {
-  font-weight: 300;
+.accordian-text-parent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: Helvetica;
+  font-size: 1rem;
+  font-weight: lighter;
+}
+
+.accordian-text-parent:hover, .accordian-text:hover {
+  text-decoration: underline;
   cursor: pointer;
 }
 

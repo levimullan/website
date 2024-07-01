@@ -77,7 +77,6 @@ const MagnifyButton = ({ magState }) => {
             width: "100%",
             height: "100%",
             zIndex: "2",
-            border: "1px solid blue",
             overflow: "hidden",
           }}>
           <div
