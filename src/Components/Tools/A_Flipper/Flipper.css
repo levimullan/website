@@ -35,7 +35,7 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 10px;
-  background-image: linear-gradient(to top, rgb(228, 249, 215) 0%, rgb(255, 233, 237) 100%);
+  background-image: linear-gradient(to top, rgb(247, 219, 208) 0%, rgb(225, 238, 194) 100%);
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }

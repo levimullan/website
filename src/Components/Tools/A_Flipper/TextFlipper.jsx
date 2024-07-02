@@ -36,16 +36,16 @@ const Flipper = ({ col, row, project, customText }) => {
           transition: "transform 0.8s",
           transformStyle: "preserve-3d",
         }}>
-        <div className="new-flip-card-front">
+        <div className="new-flip-card-front" style={{padding: "20px"}}>
           {cardProject && (
             <>
               <h1 style={{color: "orangered"}}>{cardProject.title}</h1>
               <i>{cardProject.subTitle}</i>
               <hr />
               <br />
-              <p>{cardProject.brief}</p>
+              <p style={{fontWeight: "lighter"}}>{cardProject.brief}</p>
               <br />
-              <p>{cardProject.extra}</p>
+              <p style={{ fontWeight: "lighter" }}>{cardProject.extra}</p>
             </>
           )}
           {!cardProject &&  customText }

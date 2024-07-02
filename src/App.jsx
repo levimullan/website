@@ -56,8 +56,8 @@ function App() {
               <FiGithub />
             </a>
           </div>
-          <Cover setter={setPage} />
-          {/* <Agripark setter={setPage} /> */}
+          {/* <Cover setter={setPage} /> */}
+          <Agripark setter={setPage} />
           <SpotifyWidget />
           {/* <Flipper col={1} row={5} toDisplay={headshot} project={11} /> */}
         </div>
