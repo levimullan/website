@@ -9,7 +9,7 @@ const ProjectDescriptions = [
     title: "700 Seward",
     subTitle: "Restoring a Detroit Icon",
     brief:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga quo labore nostrum odit aut assumenda. Perspiciatis blanditiis sequi unde consectetur accusantium. Odio voluptates adipisci fuga quod, quas ipsam facere enim.",
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga quo labore nostrum odit aut assumenda. Perspiciatis blanditiis sequi unde consectetur accusantium.",
   },
   {
     title: "1700 Ash",

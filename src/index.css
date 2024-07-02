@@ -40,16 +40,3 @@ i {
   font-size: 0.9em;
   font-weight: lighter;
 }
-
-a {
-  text-decoration: none;
-  color: white;
-}
-
-a:hover {
-  color: black;
-  transition-property: color;
-  transition-duration: 0.5s;
-  transition-timing-function: ease-in-out;
-  cursor: pointer;
-}

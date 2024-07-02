@@ -40,15 +40,15 @@ function App() {
               }}>
               <RiSearchEyeLine />
             </div>
-            <div className="tool">
+             <a className="tool" href="mailto:lmullan@student.ubc.ca" target="_blank">
               <HiOutlineMail />
-            </div>
-            <div className="tool">
+            </a>
+            <a className="tool" href="https://www.linkedin.com/in/levimullan/" target="_blank">
               <RiLinkedinLine />
-            </div>
-            <div className="tool">
+            </a>
+            <a className="tool" href="https://github.com/levimullan" target="_blank">
               <FiGithub />
-            </div>
+            </a>
           </div>
           <Cover setter={setPage} />
           <Flipper col={1} row={4} toDisplay={headshot} project={11} />

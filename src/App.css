@@ -26,36 +26,29 @@
   gap: 15px;
 }
 
-.tool:hover {
-  background-image: linear-gradient(to top, rgb(228, 249, 215) 0%, rgb(255, 233, 237) 100%);
-  border-radius: 5px;
-  color: rgb(53, 181, 53);
-  cursor: pointer;
+.tool {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: snow;
+  width: 100%;
+  height: 100%;
+  color: lightgray;
+  border: 4px solid white;
+  transition: 0.3s;
+  transition-timing-function: ease-in-out;
 }
-@keyframes push {
-  0% {
-    box-shadow: 4px 4px 8px 0px rgb(0, 0, 0, 0.2);
-  }
-  50% {
-    box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 1);
-  }
-  100% {
-    box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.2);
-  }
+
+.tool:hover {
+  cursor: pointer;
+  color: black;
+  border: 4px solid black;
 }
 
 svg {
   transform: scale(1.6);
 }
 
-.tool {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-image: snow;
-  width: 100%;
-  height: 100%;
-  border: 2px solid rgb(255, 255, 255);
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: background-image 1s ease-in-out;
+a {
+  color: black;
 }

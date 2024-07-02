@@ -50,6 +50,7 @@
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  outline: 
 }
 
 .flip-card-back {
@@ -101,4 +102,14 @@ audio {
   width: 0;
   height: 0;
   visibility: hidden;
+}
+
+.flip-card a {
+  text-decoration: none;
+  color: white;
+}
+
+.flip-card a:hover {
+  color: black;
+  cursor: pointer;
 }

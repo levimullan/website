@@ -19,7 +19,7 @@ import icons from "./assets/icons.png";
 import tobs from "./assets/tobs.png";
 import sketch2 from "./assets/sketch2.png";
 import agripark from "./assets/agripark1.png";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { PageContext } from "../../App.jsx";
 import Flipper from "../Tools/Flipper/flipper.jsx";
 import chairPrototype from "../01_Cover/assets/chair-prototype.png";
@@ -37,15 +37,12 @@ const Cover = ({setter}) => {
       <Flipper col={"6 / 8"} row={"3 / 6"} toDisplay={typologyAxo} project={6} />
       <Flipper col={"2 / 4"} row={"3 / 5"} toDisplay={axoHostel} project={10} />
       <Flipper col={6} row={2} toDisplay={mensFashion} project={0}  />
-      {/* <Flipper col={1} row={"3 / 5"} toDisplay={cryptSection} /> */}
-      {/* <Flipper col={8} row={1} toDisplay={wallSection} project={0}  /> */}
       <Flipper col={"4 / 6"} row={3} toDisplay={detriotElevation} project={1}  />
       <Flipper col={1} row={"4 / 6"} toDisplay={dressSection} project={0}  />
       <Flipper col={"2 / 4"} row={"1 / 3"} toDisplay={niagaraElevation} project={3}  />
       <Flipper col={"4 / 7"} row={1} toDisplay={metroAxo} project={4}  />
       <Flipper col={4} row={4} toDisplay={sleeve} project={0}  />
       <Flipper col={"4 / 6"} row={2} toDisplay={patCut} project={0}  />
-      {/* <Flipper col={1} row={2} toDisplay={sleeve2} project={0} /> */}
       <Flipper col={7} row={2} toDisplay={icons} project={11}  />
       <Flipper col={1} row={3} toDisplay={tobs} project={7}  />
       <Flipper col={5} row={4} toDisplay={cryptRoof} project={5} />

@@ -65,7 +65,16 @@ const flipper = ({ col, row, toDisplay, project }) => {
         <div className="new-flip-card-back" style={{ transform: `${transformOp}` }}>
           <div>
             <h2 style={smallCard ? { fontSize: "0.9em" } : {}}>{cardProject.title}</h2>
-            <i style={smallCard ? { fontSize: "0.8em" } : {}}>{cardProject.subTitle}</i>
+
+            {!smallCard && (
+              <>
+                <i style={{ fontSize: "0.8em" }}>{cardProject.subTitle}</i>
+                <p style={{ fontSize: "0.8em", marginTop: "5px" }}>
+                  <hr />
+                  {cardProject.brief}
+                </p>
+              </>
+            )}
           </div>
           <BsBoxArrowInRight
             className="icon"
