@@ -70,20 +70,15 @@ function SpotifyWidget() {
     <>
       <div
         className="flip-card"
-        style={
-          !isPlaying
-            ? {
-                boxShadow: "none",
-              }
-            : {}
-        }
         onMouseEnter={() => {
           setIsFlipped(true);
         }}
         onMouseLeave={() => {
           setIsFlipped(false);
         }}>
-        <div className="flip-card-inner" style={isFlipped && isPlaying ? { transform: "rotateY(180deg)" } : {}}>
+        <div
+          className="flip-card-inner"
+          style={isFlipped && isPlaying ? { transform: "rotateY(180deg)" } : { boxShadow: "none" }}>
           <div className="flip-card-front" style={isPlaying ? { animationName: "bounce" } : {}} ref={containerRef}>
             <img src={isPlaying ? albumCoverUrl : livingRoom} style={{ width: "100%", height: "100%" }} />
           </div>
@@ -102,13 +97,13 @@ function SpotifyWidget() {
             </div>
 
             <audio id="sound" controls src={previewLink}></audio>
-            <div
-              onMouseEnter={() => playAudio("sound")}
-              onMouseLeave={() => pauseAudio("sound")}>
+            <div onMouseEnter={() => playAudio("sound")} onMouseLeave={() => pauseAudio("sound")}>
               {isPlaying ? (
-                <a href={spotifyLink} target="_blank" className="title">{song}</a>
+                <a href={spotifyLink} target="_blank" className="title">
+                  {song}
+                </a>
               ) : (
-                <p href={spotifyLink}  target="_blank" className="title" style={{ color: "lightgray" }}>
+                <p href={spotifyLink} target="_blank" className="title" style={{ color: "lightgray" }}>
                   Nothing Playing.
                 </p>
               )}

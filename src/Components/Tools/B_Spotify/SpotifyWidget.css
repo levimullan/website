@@ -61,21 +61,6 @@
   background-image: linear-gradient(to top, #15c056 0%, #b4f500 100%);
 }
 
-.images {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-color: rgb(255, 255, 255);
-  padding: 10px;
-  align-items: center;
-  overflow: hidden;
-  box-shadow:
-    rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
-    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
-  border-radius: 2px;
-}
-
 .title,
 .artist {
   font-size: 1.1em;
