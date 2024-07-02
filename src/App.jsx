@@ -14,6 +14,7 @@ export const PageContext = createContext();
 
 function App() {
   const [page, setPage] = useState(null);
+  const [pushed, setPushed] = useState(false);
   const [magnifyState, setMagnifyState] = useState(false);
 
   const handleKeyPress = (event) => {
@@ -32,9 +33,11 @@ function App() {
         <div className="app-grid">
           <Menu />
           <div className="tools">
-            <div className="tool"
-            onClick={(()=>{setMagnifyState(true)})}
-            >
+            <div
+              className="tool"
+              onClick={() => {
+                setMagnifyState(true);
+              }}>
               <RiSearchEyeLine />
             </div>
             <div className="tool">

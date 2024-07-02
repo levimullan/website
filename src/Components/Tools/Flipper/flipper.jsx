@@ -69,7 +69,7 @@ const flipper = ({ col, row, toDisplay, project }) => {
           </div>
           <BsBoxArrowInRight
             className="icon"
-            style={mouseEnter ? { color: "black", cursor: "pointer" } : { color: "white" }}
+            style={mouseEnter ? { color: "black", cursor: "pointer" } : { color: "gray" }}
             onMouseEnter={() => {
               setMouseEnter(true);
             }}

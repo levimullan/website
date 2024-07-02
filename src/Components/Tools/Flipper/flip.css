@@ -1,7 +1,6 @@
 /* flip card styles */
 
 .new-flip-card {
-  background-color: black;
   width: 100%;
   height: 100%;
   perspective: 300px;
@@ -12,7 +11,6 @@
   width: 100%;
   height: 100%;
 }
-
 
 .new-flip-card-front,
 .new-flip-card-back {
@@ -30,14 +28,14 @@
 }
 
 .new-flip-card-back {
-  color: white;
+  color:black;
   height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 10px;
-  background-image: linear-gradient(to top, #15c056 0%, #b4f500 100%);
+  background-image: linear-gradient(to top, rgb(228, 249, 215) 0%, rgb(255, 233, 237) 100%);
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
