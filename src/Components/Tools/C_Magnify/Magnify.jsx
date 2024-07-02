@@ -1,4 +1,6 @@
-import "./magnify.css";
+// Styles
+import "./Magnify.css";
+// Dependencies
 import { useState, useEffect, useRef } from "react";
 
 const MagnifyButton = ({ magState }) => {

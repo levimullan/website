@@ -1,5 +1,6 @@
+// Styles
 import "./Menu.css";
-import React from "react";
+//Dependencies
 import { GiHamburgerMenu } from "react-icons/gi";
 
 const Menu = () => {

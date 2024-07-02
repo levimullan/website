@@ -1,5 +1,8 @@
+// Images
+import livingRoom from "../../../assets/living-room.png";
+// Styles
 import "./SpotifyWidget.css";
-import livingRoom from "../01_Cover/assets/living-room.png";
+//Dependencies
 import { useRef, useState, useEffect } from "react";
 import { processData } from "./utilCurrentListening";
 
@@ -10,6 +13,7 @@ function SpotifyWidget() {
   const [albumCoverUrl, setAlbumCoverUrl] = useState("");
   const [spotifyLink, setSpotifyLink] = useState("");
   const [previewLink, setPreviewLink] = useState("");
+  const [isFlipped, setIsFlipped] = useState(false);
   const containerRef = useRef(null);
 
   const setStates = async () => {
@@ -64,31 +68,59 @@ function SpotifyWidget() {
 
   return (
     <>
-      <div className="flip-card">
-        <div className="flip-card-inner">
-          <div className="flip-card-front"
-            style={isPlaying ? { animationName: "bounce" } : {}}
-            ref={containerRef}>
+      <div
+        className="flip-card"
+        style={
+          !isPlaying
+            ? {
+                boxShadow: "none",
+              }
+            : {}
+        }
+        onMouseEnter={() => {
+          setIsFlipped(true);
+        }}
+        onMouseLeave={() => {
+          setIsFlipped(false);
+        }}>
+        <div className="flip-card-inner" style={isFlipped && isPlaying ? { transform: "rotateY(180deg)" } : {}}>
+          <div className="flip-card-front" style={isPlaying ? { animationName: "bounce" } : {}} ref={containerRef}>
             <img src={isPlaying ? albumCoverUrl : livingRoom} style={{ width: "100%", height: "100%" }} />
           </div>
 
-          <div className="flip-card-back">
+          <div
+            className="flip-card-back"
+            style={
+              isPlaying
+                ? { transform: "rotateY(180deg)" }
+                : { backgroundImage: "none", backgroundColor: "snow", border: "5px solid white" }
+            }>
             <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <p>Current track: </p>
+              <p style={!isPlaying ? { color: "lightgray" } : {}}>Current track: </p>
               <br />
               <br />
             </div>
 
             <audio id="sound" controls src={previewLink}></audio>
-            <a
-              href={spotifyLink}
+            <div
               onMouseEnter={() => playAudio("sound")}
-              onMouseLeave={() => pauseAudio("sound")}
-              target="_blank">
-              {isPlaying ? <p className="title">{song}</p> : <p className="title">Nothing Playing.</p>}
-            </a>
+              onMouseLeave={() => pauseAudio("sound")}>
+              {isPlaying ? (
+                <a href={spotifyLink} target="_blank" className="title">{song}</a>
+              ) : (
+                <p href={spotifyLink}  target="_blank" className="title" style={{ color: "lightgray" }}>
+                  Nothing Playing.
+                </p>
+              )}
+            </div>
             <br />
-            {isPlaying ? <p className="artist">{artist}</p> : <p className="artist">Check back later.</p>}
+            {isPlaying ? (
+              <p className="artist">{artist}</p>
+            ) : (
+              <p className="artist" style={{ color: "lightgray" }}>
+                Check back later.
+              </p>
+            )}
           </div>
         </div>
       </div>

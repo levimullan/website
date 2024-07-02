@@ -1,15 +1,20 @@
+// Images
+import headshot from "./assets/headshot.jpg";
+import { FiGithub } from "react-icons/fi";
+// Styles
 import "./App.css";
-import { useState, useEffect, createContext } from "react";
+// Custom Components
 import Menu from "./Components/00_Menu/Menu";
 import Cover from "./Components/01_Cover/Cover";
-import Flipper from "./Components/Tools/Flipper/flipper.jsx";
-import headshot from "./Components/00_Menu/assets/headshot.jpg";
-import Magnify from "./Components/03_Magnify/Magnify";
-import SpotifyWidget from "./Components/04_Spotify/SpotifyWidget";
+import Agripark from "./Components/03_Agripark/Agripark.jsx";
+import Flipper from "./Components/Tools/A_Flipper/ImageFlipper.jsx";
+import Magnify from "./Components/Tools/C_Magnify/Magnify";
+import SpotifyWidget from "./Components/Tools/B_Spotify/SpotifyWidget";
+// Dependencies
+import { useState, useEffect, createContext } from "react";
 import { HiOutlineMail } from "react-icons/hi";
 import { RiSearchEyeLine, RiLinkedinLine } from "react-icons/ri";
-import { FiGithub } from "react-icons/fi";
-
+// Context Exports
 export const PageContext = createContext();
 
 function App() {
@@ -32,6 +37,7 @@ function App() {
       <div className="app">
         <div className="app-grid">
           <Menu />
+          <div></div>
           <div className="tools">
             <div
               className="tool"
@@ -40,7 +46,7 @@ function App() {
               }}>
               <RiSearchEyeLine />
             </div>
-             <a className="tool" href="mailto:lmullan@student.ubc.ca" target="_blank">
+            <a className="tool" href="mailto:lmullan@student.ubc.ca" target="_blank">
               <HiOutlineMail />
             </a>
             <a className="tool" href="https://www.linkedin.com/in/levimullan/" target="_blank">
@@ -51,8 +57,9 @@ function App() {
             </a>
           </div>
           <Cover setter={setPage} />
-          <Flipper col={1} row={4} toDisplay={headshot} project={11} />
+          {/* <Agripark setter={setPage} /> */}
           <SpotifyWidget />
+          {/* <Flipper col={1} row={5} toDisplay={headshot} project={11} /> */}
         </div>
         <Magnify magState={magnifyState} />
       </div>

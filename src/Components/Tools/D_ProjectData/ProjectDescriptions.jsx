@@ -27,7 +27,9 @@ const ProjectDescriptions = [
     title: "5 Via Sannio",
     subTitle: "Metro Station and Agripark",
     brief:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga quo labore nostrum odit aut assumenda. Perspiciatis blanditiis sequi unde consectetur accusantium. Odio voluptates adipisci fuga quod, quas ipsam facere enim.",
+      "Historically, the Aurelian Wall represents the physical divide between production (the Roman Campagna) and consumption within the city itself. The proposal recognizes and celebtrates the site as this nexus.",
+    extra:
+      "At grade, the site is designed with perpendicular programmatic striations that tell the story of agricultural production to urban consumption. This processional-like experience of the site educates the public informally while a museum, hovering above the procession, offers a formal education into Rome's history of agricultural production and consumption. In this way, users experience each part of the process individually by walking through the site but are introduced to the narrative as a whole upon ascent to the museum.",
   },
   {
     title: "6 Via Caio Cestio",

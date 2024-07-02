@@ -1,9 +1,12 @@
-import "./flip.css";
-import ProjectDescriptions from "../../ProjectDescriptions.jsx";
-import React, { useEffect, useState, useRef } from "react";
+// Styles
+import "./Flipper.css";
 import { BsBoxArrowInRight } from "react-icons/bs";
+// Custom imports
+import ProjectDescriptions from "../D_ProjectData/ProjectDescriptions.jsx";
+// Project Dependencies
+import React, { useEffect, useState, useRef } from "react";
 
-const flipper = ({ col, row, toDisplay, project }) => {
+const Flipper = ({ col, row, toDisplay, project }) => {
   const [flipped, setFlipped] = useState(false);
   const [transformOp, setTransformOp] = useState("none");
   const [perspectiveVal, setPerspectiveVal] = useState("1000");
@@ -34,7 +37,7 @@ const flipper = ({ col, row, toDisplay, project }) => {
 
   useEffect(() => {
     getFlipDir();
-    console.log(cardProject);
+    // console.log(cardProject);
   }, []);
 
   return (
@@ -69,10 +72,8 @@ const flipper = ({ col, row, toDisplay, project }) => {
             {!smallCard && (
               <>
                 <i style={{ fontSize: "0.8em" }}>{cardProject.subTitle}</i>
-                <p style={{ fontSize: "0.8em", marginTop: "5px" }}>
-                  <hr />
-                  {cardProject.brief}
-                </p>
+                <hr />
+                <p style={{ fontSize: "0.8em", marginTop: "5px" }}>{cardProject.brief}</p>
               </>
             )}
           </div>
@@ -92,4 +93,4 @@ const flipper = ({ col, row, toDisplay, project }) => {
   );
 };
 
-export default flipper;
+export default Flipper;

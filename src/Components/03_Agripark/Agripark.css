@@ -1,0 +1,22 @@
+.grid {
+  grid-column: 2 / 10;
+  grid-row: 1 / 6;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 15px;
+}
+
+.images:hover {
+  cursor: pointer;
+  animation-name: hoverCard;
+  animation-duration: 2s;
+  animation-timing-function: ease;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
