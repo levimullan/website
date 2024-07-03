@@ -5,14 +5,15 @@ import "./SpotifyWidget.css";
 //Dependencies
 import { useRef, useState, useEffect } from "react";
 import { processData } from "./utilCurrentListening";
+import { AnimatePresence, cubicBezier, easeInOut, motion } from "framer-motion";
 
 function SpotifyWidget() {
   const [isPlaying, setisPlaying] = useState(false);
-  const [song, setSong] = useState("");
-  const [artist, setArtist] = useState("");
-  const [albumCoverUrl, setAlbumCoverUrl] = useState("");
-  const [spotifyLink, setSpotifyLink] = useState("");
-  const [previewLink, setPreviewLink] = useState("");
+  const [song, setSong] = useState(null);
+  const [artist, setArtist] = useState(null);
+  const [albumCoverUrl, setAlbumCoverUrl] = useState(null);
+  const [spotifyLink, setSpotifyLink] = useState(null);
+  const [previewLink, setPreviewLink] = useState(null);
   const [isFlipped, setIsFlipped] = useState(false);
   const containerRef = useRef(null);
 
@@ -31,9 +32,9 @@ function SpotifyWidget() {
     let lessFrequent;
     let moreFrequent;
     if (isPlaying) {
-      moreFrequent = setInterval(setStates, 20000);
+      moreFrequent = setInterval(setStates, 2500);
     } else {
-      lessFrequent = setInterval(setStates, 100000);
+      lessFrequent = setInterval(setStates, 5000);
     }
 
     return () => {
@@ -54,7 +55,7 @@ function SpotifyWidget() {
   function increaseVol(audio) {
     console.log(audio.volume);
     setTimeout(() => {
-      if (audio.volume < 0.2) {
+      if (audio.volume < 0.1) {
         audio.volume = audio.volume + 0.005;
         console.log("new vol", audio.volume);
         increaseVol(audio);
@@ -67,59 +68,47 @@ function SpotifyWidget() {
   };
 
   return (
-    <>
-      <div
-        className="flip-card"
-        onMouseEnter={() => {
-          setIsFlipped(true);
-        }}
-        onMouseLeave={() => {
-          setIsFlipped(false);
-        }}>
-        <div
-          className="flip-card-inner"
-          style={isFlipped && isPlaying ? { transform: "rotateY(180deg)" } : { boxShadow: "none" }}>
-          <div className="flip-card-front" style={isPlaying ? { animationName: "bounce" } : {}} ref={containerRef}>
-            <img src={isPlaying ? albumCoverUrl : livingRoom} style={{ width: "100%", height: "100%" }} />
-          </div>
-
-          <div
-            className="flip-card-back"
-            style={
-              isPlaying
-                ? { transform: "rotateY(180deg)" }
-                : { backgroundImage: "none", backgroundColor: "snow", border: "5px solid white" }
-            }>
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <p style={!isPlaying ? { color: "lightgray" } : {}}>Current track: </p>
-              <br />
-              <br />
+    <motion.div
+      className="spotify-widget"
+      onHoverStart={() => setIsFlipped(true)}
+      onHoverEnd={() => setIsFlipped(false)}>
+      <motion.div
+        className="nothing-playing"
+        initial={isPlaying ? { opacity: 0 } : { opacity: 1 }}
+        animate={isPlaying ? { opacity: 0 } : { opacity: 1 }}
+        transition={{ duration: 0.2, ease: "easeInOut" }}>
+        <p className="artist">Currently Playing:</p>
+        <div>
+          <p className="title">Nothing Playing</p>
+          <p className="artist">Check back later.</p>
+        </div>
+      </motion.div>
+      <AnimatePresence>
+        {isPlaying && (
+          <motion.div
+            className="playing-card"
+            key={"playingCard"}
+            initial={{ opacity: 0, rotateY: 0 }}
+            animate={isFlipped ? { opacity: 1, rotateY: 180 } : { opacity: 1 }}
+            transition={{ duration: 0.7, ease: "easeInOut" }}
+            exit={{ opacity: 0 }}>
+            <div className="playing-front">
+              <img src={albumCoverUrl} />
             </div>
-
-            <audio id="sound" controls src={previewLink}></audio>
-            <div onMouseEnter={() => playAudio("sound")} onMouseLeave={() => pauseAudio("sound")}>
-              {isPlaying ? (
+            <div className="nothing-playing playing-back">
+              <p className="artist">Currently Playing:</p>
+              <audio id="sound" controls src={previewLink}></audio>
+              <div onMouseEnter={() => playAudio("sound")} onMouseLeave={() => pauseAudio("sound")}>
                 <a href={spotifyLink} target="_blank" className="title">
                   {song}
                 </a>
-              ) : (
-                <p href={spotifyLink} target="_blank" className="title" style={{ color: "lightgray" }}>
-                  Nothing Playing.
-                </p>
-              )}
-            </div>
-            <br />
-            {isPlaying ? (
+              </div>
               <p className="artist">{artist}</p>
-            ) : (
-              <p className="artist" style={{ color: "lightgray" }}>
-                Check back later.
-              </p>
-            )}
-          </div>
-        </div>
-      </div>
-    </>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
   );
 }
 

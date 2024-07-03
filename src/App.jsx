@@ -1,5 +1,4 @@
 // Images
-import headshot from "./assets/headshot.jpg";
 import { FiGithub } from "react-icons/fi";
 // Styles
 import "./App.css";
@@ -7,9 +6,9 @@ import "./App.css";
 import Menu from "./Components/00_Menu/Menu";
 import Cover from "./Components/01_Cover/Cover";
 import Agripark from "./Components/03_Agripark/Agripark.jsx";
-import Flipper from "./Components/Tools/A_Flipper/ImageFlipper.jsx";
 import Magnify from "./Components/Tools/C_Magnify/Magnify";
 import SpotifyWidget from "./Components/Tools/B_Spotify/SpotifyWidget";
+import Crypt from "./Components/04_Crypt/Crypt.jsx";
 // Dependencies
 import { useState, useEffect, createContext } from "react";
 import { HiOutlineMail } from "react-icons/hi";
@@ -19,7 +18,6 @@ export const PageContext = createContext();
 
 function App() {
   const [page, setPage] = useState(null);
-  const [pushed, setPushed] = useState(false);
   const [magnifyState, setMagnifyState] = useState(false);
 
   const handleKeyPress = (event) => {
@@ -37,7 +35,7 @@ function App() {
       <div className="app">
         <div className="app-grid">
           <Menu />
-          <div></div>
+          
           <div className="tools">
             <div
               className="tool"
@@ -56,8 +54,9 @@ function App() {
               <FiGithub />
             </a>
           </div>
-          {/* <Cover setter={setPage} /> */}
-          <Agripark setter={setPage} />
+          <Cover setter={setPage} />
+          {/* <Agripark setter={setPage} /> */}
+          {/* <Crypt setter={setPage} /> */}
           <SpotifyWidget />
           {/* <Flipper col={1} row={5} toDisplay={headshot} project={11} /> */}
         </div>

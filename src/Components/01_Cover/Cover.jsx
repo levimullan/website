@@ -17,7 +17,17 @@ import icons from "../../assets/icons.png";
 import tobs from "../../assets/tobs.png";
 import sketch2 from "../../assets/sketch2.png";
 import agripark from "../../assets/agripark1.png";
-import chairPrototype from "../../assets/chair-prototype.png";
+import chairPrototype from "../../assets/chair2.png";
+import digfem1 from "../../assets/digitalfemme1.png";
+import digfem2 from "../../assets/digfemme2.png";
+import sketch from "../../assets/axonometric.png";
+import chair2 from "../../assets/chair-prototype.png";
+import chile1 from "../../assets/elevation.png";
+import plan1 from "../../assets/plan-1.png";
+import typesection from "../../assets/section2.png";
+import colbert from "../../assets/colbert.png";
+import dresscolbert from "../../assets/dresscolbert.png";
+
 //Styles
 import styles from "./styles.module.css";
 //Dependencies
@@ -35,7 +45,7 @@ const Cover = ({ setter }) => {
       <Flipper col={"6 / 8"} row={"3 / 6"} toDisplay={typologyAxo} project={6} />
       <Flipper col={"2 / 4"} row={"3 / 5"} toDisplay={axoHostel} project={10} />
       <Flipper col={6} row={2} toDisplay={mensFashion} project={0} />
-      <Flipper col={"4 / 6"} row={3} toDisplay={detriotElevation} project={1} />
+      <Flipper col={"2 / 4"} row={6} toDisplay={detriotElevation} project={1} />
       <Flipper col={1} row={"4 / 6"} toDisplay={dressSection} project={0} />
       <Flipper col={"2 / 4"} row={"1 / 3"} toDisplay={niagaraElevation} project={3} />
       <Flipper col={"4 / 7"} row={1} toDisplay={metroAxo} project={4} />
@@ -49,6 +59,15 @@ const Cover = ({ setter }) => {
       <Flipper col={8} row={1} toDisplay={sleeve2} project={0} />
       <Flipper col={7} row={1} toDisplay={cryptPlan} project={5} />
       <Flipper col={8} row={5} toDisplay={chairPrototype} project={8} />
+      <Flipper col={9} row={"4 / 6"} toDisplay={digfem1} project={8} />
+      <Flipper col={5} row={6} toDisplay={digfem2} project={8} />
+      <Flipper col={9} row={"1 / 3"} toDisplay={sketch} project={8} />
+      <Flipper col={1} row={6} toDisplay={chair2} project={8} />
+      <Flipper col={"6 / 9"} row={6} toDisplay={chile1} project={8} />
+      <Flipper col={9} row={3} toDisplay={plan1} project={8} />
+      <Flipper col={"4 / 6"} row={3} toDisplay={typesection} project={8} />
+      <Flipper col={4} row={6} toDisplay={colbert} project={8} />
+      <Flipper col={9} row={6} toDisplay={dresscolbert} project={8} />
     </div>
   );
 };

@@ -1,3 +1,5 @@
+import React from "react";
+
 const ProjectDescriptions = [
   {
     title: "Coffee Houses & Arcades",
@@ -35,7 +37,8 @@ const ProjectDescriptions = [
     title: "6 Via Caio Cestio",
     subTitle: "Cemetary Pavillion",
     brief:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga quo labore nostrum odit aut assumenda. Perspiciatis blanditiis sequi unde consectetur accusantium. Odio voluptates adipisci fuga quod, quas ipsam facere enim.",
+      "The cemetery-sited pavilion called for the completion of a ruinous tower along the Aurelian Wall. Instead of recreating the tower in masonry as it was originally constructed, a perforated sheet metal envelope is installed on a timber structure.",
+    extra: "The perforations in the metal envelope create a texture that operates at the scale of the original masonry. They also induce a stack effect to maximize air circulation vertically through the pavillion.",
   },
   {
     title: "214 Greenwood",

@@ -1,3 +1,8 @@
+:root {
+  --inactive-col: rgb(178, 178, 178);
+  --font-size: 14px;
+}
+
 * {
   margin: 0;
   padding: 0px;
@@ -20,7 +25,9 @@ html,
 body,
 #root {
   height: 100%;
+  width: 100%;
   background-color: snow;
+  overflow: hidden;
 }
 
 h1 {

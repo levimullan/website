@@ -5,10 +5,11 @@ import { BsBoxArrowInRight } from "react-icons/bs";
 import ProjectDescriptions from "../D_ProjectData/ProjectDescriptions.jsx";
 // Project Dependencies
 import React, { useEffect, useState, useRef } from "react";
+import { AnimatePresence, cubicBezier, motion } from "framer-motion";
 
-const Flipper = ({ col, row, toDisplay, project }) => {
+const ImageFlipper = ({ col, row, toDisplay, project }) => {
   const [flipped, setFlipped] = useState(false);
-  const [transformOp, setTransformOp] = useState("none");
+  const [transformOp, setTransformOp] = useState(false);
   const [perspectiveVal, setPerspectiveVal] = useState("1000");
   const [cardProject, setCardProject] = useState(ProjectDescriptions[project]);
   const [smallCard, setSmallCard] = useState(false);
@@ -27,10 +28,10 @@ const Flipper = ({ col, row, toDisplay, project }) => {
     }
     let ratio = Math.round(Math.abs(w / h) * 10) / 10;
     if (ratio < 1.6) {
-      setTransformOp("rotateY(180deg)");
+      setTransformOp(true);
       // console.log(transformOp);
     } else {
-      setTransformOp("rotateX(180deg)");
+      setTransformOp(false);
       // console.log(transformOp);
     }
   }
@@ -41,56 +42,65 @@ const Flipper = ({ col, row, toDisplay, project }) => {
   }, []);
 
   return (
-    <div
-      ref={container}
-      className="new-flip-card"
-      onMouseEnter={() => {
-        setFlipped(true);
-      }}
-      onMouseLeave={() => {
-        setFlipped(false);
-      }}
-      style={{
-        gridColumn: `${col}`,
-        gridRow: `${row}`,
-        perspective: `${perspectiveVal}px`,
-      }}>
+    <AnimatePresence>
       <div
-        className="new-flip-card-inner"
+        ref={container}
+        className="new-flip-card"
+        onMouseEnter={() => {
+          setFlipped(true);
+        }}
+        onMouseLeave={() => {
+          setFlipped(false);
+        }}
         style={{
-          transform: flipped ? `${transformOp}` : "",
-          transition: "transform 0.8s",
-          transformStyle: "preserve-3d",
+          gridColumn: `${col}`,
+          gridRow: `${row}`,
+          perspective: `${perspectiveVal}px`,
         }}>
-        <div className="new-flip-card-front">
-          <img className="flipimage" ref={image} src={toDisplay} />
-        </div>
-        <div className="new-flip-card-back" style={{ transform: `${transformOp}` }}>
-          <div>
-            <h2 style={smallCard ? { fontSize: "0.9em" } : {}}>{cardProject.title}</h2>
-
-            {!smallCard && (
-              <>
-                <i style={{ fontSize: "0.8em" }}>{cardProject.subTitle}</i>
-                <hr />
-                <p style={{ fontSize: "0.8em", marginTop: "5px" }}>{cardProject.brief}</p>
-              </>
-            )}
+        <motion.div
+          className="new-flip-card-inner"
+          style={{
+            // transform: flipped ? `${transformOp}` : "", // TODO: move this to a gsap
+            transition: "transform 0.8s", //TODO: move this to a gsap
+            transformStyle: "preserve-3d",
+          }}
+          animate={transformOp ? { rotateY: flipped ? 180 : 0 } : { rotateX: flipped ? 180 : 0 }}
+          transition={{
+            duration: 0.3,
+            ease: "linear"
+          }}>
+          <div className="new-flip-card-front">
+            <img className="flipimage" ref={image} src={toDisplay} />
           </div>
-          <BsBoxArrowInRight
-            className="icon"
-            style={mouseEnter ? { color: "black", cursor: "pointer" } : { color: "gray" }}
-            onMouseEnter={() => {
-              setMouseEnter(true);
-            }}
-            onMouseLeave={() => {
-              setMouseEnter(false);
-            }}
-          />
-        </div>
+          <div
+            className="new-flip-card-back"
+            style={transformOp ? { transform: `rotateY(180deg)` } : { transform: "rotateX(180deg)" }}>
+            <div>
+              <h2 style={smallCard ? { fontSize: "0.9em" } : {}}>{cardProject.title}</h2>
+
+              {!smallCard && (
+                <>
+                  <i style={{ fontSize: "0.8em" }}>{cardProject.subTitle}</i>
+                  <hr />
+                  <p style={{ fontSize: "0.8em", marginTop: "5px" }}>{cardProject.brief}</p>
+                </>
+              )}
+            </div>
+            <BsBoxArrowInRight
+              className="icon"
+              style={mouseEnter ? { color: "black", cursor: "pointer" } : { color: "gray" }}
+              onMouseEnter={() => {
+                setMouseEnter(true);
+              }}
+              onMouseLeave={() => {
+                setMouseEnter(false);
+              }}
+            />
+          </div>
+        </motion.div>
       </div>
-    </div>
+    </AnimatePresence>
   );
 };
 
-export default Flipper;
+export default ImageFlipper;

@@ -1,81 +1,68 @@
-@keyframes bounce {
-  0% {
-    filter: drop-shadow(2px 2px 1px rgba(10, 221, 66, 0.6));
-    transform: scale(1);
-  }
-  50% {
-    filter: drop-shadow(2px 2px 5px rgba(10, 221, 66, 0.3));
-    transform: scale(1.02);
-  }
-  100% {
-    filter: drop-shadow(2px 2px 1px #0add4299);
-    transform: scale(1);
-  }
-}
-
-.flip-card {
-  background-color: transparent;
-  width: 100%;
-  height: 100%;
+.spotify-widget {
+  /* layout */
+  grid-column: 1;
+  grid-row: 6;
+  position: relative;
+  overflow: visible;
+  /* styles */
+  outline: 4px solid white;
+  outline-offset: -4px;
   perspective: 300px;
 }
 
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-  transform-origin: center;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-}
-
-/* .flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-} */
-
-.flip-card-front,
-.flip-card-back {
+.nothing-playing {
+  /* layout */
   position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-.flip-card-front {
-  padding: 10px;
-  background-color: snow;
-  animation-duration: 2s;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-}
-
-.flip-card-back {
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  color: white;
-  padding: 13px;
-  background-image: linear-gradient(to top, #15c056 0%, #b4f500 100%);
+  padding: 10px;
+  /* styles */
+  color: var(--inactive-col);
 }
 
-.title,
-.artist {
-  font-size: 1.1em;
-  font-weight: bolder;
-  display: -webkit-box;
-  -webkit-line-clamp: 2; /* number of lines to show */
-  line-clamp: 2;
-  -webkit-box-orient: vertical;
+.playing-card {
+  /* layout */
+  height: 100%;
+  /* styles */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  /* animation properties */
+  transform-style: preserve-3d;
+  transform-origin: center;
 }
 
-.artist {
-  font-size: 0.9em;
-  font-weight: lighter;
-  -webkit-line-clamp: 1; /* number of lines to show */
-  line-clamp: 1;
+.playing-front,
+.playing-back {
+  /* layout */
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.playing-front {
+  /* styles */
+  background-color: snow;
+  padding: 10px;
+}
+
+.playing-back {
+  /* styles */
+  background-image: linear-gradient(to top, #3dc015 0%, #d5f367 100%);
+  border: none;
+  color: black;
+  /* animation properties */
+  transform: rotateY(180deg);
+  a {
+    text-decoration: none;
+    color: white;
+  }
+  a:hover {
+    color: black;
+    cursor: pointer;
+  }
 }
 
 audio {
@@ -84,12 +71,21 @@ audio {
   visibility: hidden;
 }
 
-.flip-card a {
-  text-decoration: none;
-  color: white;
+.title {
+  font-weight: bolder;
+  font-size: 1.1em;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-.flip-card a:hover {
-  color: black;
-  cursor: pointer;
+.artist {
+  display: -webkit-box;
+  font-weight: lighter;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }

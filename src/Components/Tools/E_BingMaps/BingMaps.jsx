@@ -15,8 +15,8 @@ const BingMaps = ({ option }) => {
       //   return { lat: 43.088859, long: -79.073588, heading: 270, zoom: 20 };
       case 4:
         return { lat: 41.88515, long: 12.5078, heading: 270, zoom: 17 };
-      // case "Mechanical Crypt":
-      //   return { lat: 41.87596, long: 12.4798, heading: 270, zoom: 21 };
+      case 5:
+        return { lat: 41.87596, long: 12.4799, heading: 270, zoom: 21 };
       // default:
       //   return { lat: 49.26116, long: -123.249079, heading: 270, zoom: 19 };
     }

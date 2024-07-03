@@ -10,7 +10,6 @@ import React, { useEffect, useState} from "react";
 const Flipper = ({ col, row, project }) => {
   const [flipped, setFlipped] = useState(false);
   const [perspectiveVal, setPerspectiveVal] = useState("1000");
-  const [cardProject, setCardProject] = useState(ProjectDescriptions[project]);
 
   useEffect(() => {
     // console.log(cardProject);
