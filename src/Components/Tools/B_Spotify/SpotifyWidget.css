@@ -44,23 +44,28 @@
 
 .playing-front {
   /* styles */
-  background-color: snow;
-  padding: 10px;
+  background-color: white;
+  padding: 4px;
 }
 
 .playing-back {
   /* styles */
-  background-image: linear-gradient(to top, #3dc015 0%, #d5f367 100%);
-  border: none;
+  /* background-image: linear-gradient(to top, #3dc015 0%, #d5f367 100%); */
+  background-color: white;
+  border-image: linear-gradient(to top, #3dc015 0%, #d5f367 100%);
+  border: 4px solid;
+  border-image-slice: 1;
+  border-width: 5px;
+  border-image-source: linear-gradient(to left, #00c853, #b2ff59);
   color: black;
   /* animation properties */
   transform: rotateY(180deg);
   a {
     text-decoration: none;
-    color: white;
+    color: black;
   }
   a:hover {
-    color: black;
+    color: #00c853;
     cursor: pointer;
   }
 }

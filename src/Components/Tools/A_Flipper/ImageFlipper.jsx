@@ -1,6 +1,7 @@
 // Styles
 import "./Flipper.css";
 import { BsBoxArrowInRight } from "react-icons/bs";
+
 // Custom imports
 import ProjectDescriptions from "../D_ProjectData/ProjectDescriptions.jsx";
 // Project Dependencies
@@ -38,7 +39,6 @@ const ImageFlipper = ({ col, row, toDisplay, project }) => {
 
   useEffect(() => {
     getFlipDir();
-    // console.log(cardProject);
   }, []);
 
   return (
@@ -67,7 +67,7 @@ const ImageFlipper = ({ col, row, toDisplay, project }) => {
           animate={transformOp ? { rotateY: flipped ? 180 : 0 } : { rotateX: flipped ? 180 : 0 }}
           transition={{
             duration: 0.3,
-            ease: "linear"
+            ease: "linear",
           }}>
           <div className="new-flip-card-front">
             <img className="flipimage" ref={image} src={toDisplay} />

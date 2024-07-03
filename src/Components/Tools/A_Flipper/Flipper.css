@@ -19,7 +19,7 @@
 
 .new-flip-card-front {
   padding: 10px;
-  background-color: snow;
+  background-color: white;
 }
 
 .new-flip-card-back {
@@ -30,7 +30,7 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 10px;
-  background-image: linear-gradient(to top, rgb(247, 219, 208) 0%, rgb(225, 238, 194) 100%);
+  /* background-image: linear-gradient(to top, rgb(247, 219, 208) 0%, rgb(225, 238, 194) 100%); */
   background-color: white;
 }
 

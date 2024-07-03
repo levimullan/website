@@ -9,6 +9,7 @@ import Agripark from "./Components/03_Agripark/Agripark.jsx";
 import Magnify from "./Components/Tools/C_Magnify/Magnify";
 import SpotifyWidget from "./Components/Tools/B_Spotify/SpotifyWidget";
 import Crypt from "./Components/04_Crypt/Crypt.jsx";
+import sound from "./assets/click.wav";
 // Dependencies
 import { useState, useEffect, createContext } from "react";
 import { HiOutlineMail } from "react-icons/hi";
@@ -20,6 +21,9 @@ function App() {
   const [page, setPage] = useState(null);
   const [magnifyState, setMagnifyState] = useState(false);
 
+  var audio = new Audio(sound);
+  audio.volume = 0.2;
+
   const handleKeyPress = (event) => {
     if (event.key === "Escape") {
       setMagnifyState(false);
@@ -30,12 +34,16 @@ function App() {
     window.addEventListener("keydown", handleKeyPress);
   }, []);
 
+  useEffect(() => {
+    audio.play();
+  }, [magnifyState]);
+
   return (
     <PageContext.Provider value={page}>
       <div className="app">
         <div className="app-grid">
           <Menu />
-          
+
           <div className="tools">
             <div
               className="tool"
