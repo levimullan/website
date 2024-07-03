@@ -1,7 +1,7 @@
 // Styles
 import "./Flipper.css";
 import { BsBoxArrowInRight } from "react-icons/bs";
-
+import sound from "./assets/click.wav";
 // Custom imports
 import ProjectDescriptions from "../D_ProjectData/ProjectDescriptions.jsx";
 // Project Dependencies
@@ -17,6 +17,9 @@ const ImageFlipper = ({ col, row, toDisplay, project }) => {
   const [mouseEnter, setMouseEnter] = useState(null);
   const container = useRef(null);
   const image = useRef(null);
+
+  var audio = new Audio(sound);
+  audio.volume = 0.2;
 
   async function getFlipDir() {
     let w = image.current.width;
@@ -94,6 +97,9 @@ const ImageFlipper = ({ col, row, toDisplay, project }) => {
               }}
               onMouseLeave={() => {
                 setMouseEnter(false);
+              }}
+              onClick={() => {
+                audio.play();
               }}
             />
           </div>
