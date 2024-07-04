@@ -1,0 +1,46 @@
+.container {
+    grid-column: 1;
+    grid-row: 1 / 4;
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+}
+
+.container p:hover {
+  cursor: pointer;
+}
+
+.menu-title {
+  background-color: red;
+  min-height: 40px;
+}
+
+.subs {
+  height: 20px;
+  color: black;
+  transition-property: height background-image background-color;
+  transition-duration: 1s;
+}
+
+.subs-expanded {
+  height: 40px;
+  color: black;
+  transition-property: height, background-image, background-color;
+  transition-duration: 1s;
+  transition-timing-function: ease;
+}
+
+.subs:nth-child(even) {
+  background-image: linear-gradient(to bottom, rgba(53, 64, 76, 0.1) 0%, rgba(50, 55, 76, 0.01) 100%);
+  background-color: rgba(169, 171, 174, 0.001);
+}
+.subs:nth-child(odd) {
+  background-color: white;
+}
+
+.subs-expanded:nth-child(even) {
+  background-color: white;
+}
+.subs-expanded:nth-child(odd) {
+  background-color: white;
+}

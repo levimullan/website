@@ -6,6 +6,7 @@ import "./SpotifyWidget.css";
 import { useRef, useState, useEffect } from "react";
 import { processData } from "./utilCurrentListening";
 import { AnimatePresence, cubicBezier, easeInOut, motion } from "framer-motion";
+import { PiSpotifyLogoLight } from "react-icons/pi";
 
 function SpotifyWidget() {
   const [isPlaying, setisPlaying] = useState(false);
@@ -77,11 +78,7 @@ function SpotifyWidget() {
         initial={isPlaying ? { opacity: 0 } : { opacity: 1 }}
         animate={isPlaying ? { opacity: 0 } : { opacity: 1 }}
         transition={{ duration: 0.2, ease: "easeInOut" }}>
-        <p className="artist">Currently Playing:</p>
-        <div>
           <p className="title">Nothing Playing</p>
-          <p className="artist">Check back later.</p>
-        </div>
       </motion.div>
       <AnimatePresence>
         {isPlaying && (
@@ -95,15 +92,17 @@ function SpotifyWidget() {
             <div className="playing-front">
               <img src={albumCoverUrl} />
             </div>
-            <div className="nothing-playing playing-back">
+            <div className="playing-back">
               <p className="artist">Currently Playing:</p>
               <audio id="sound" controls src={previewLink}></audio>
+              <div>
               <div onMouseEnter={() => playAudio("sound")} onMouseLeave={() => pauseAudio("sound")}>
                 <a href={spotifyLink} target="_blank" className="title">
                   {song}
                 </a>
               </div>
               <p className="artist">{artist}</p>
+              </div>
             </div>
           </motion.div>
         )}

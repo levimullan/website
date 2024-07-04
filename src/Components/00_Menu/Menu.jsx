@@ -1,63 +1,96 @@
 // Styles
 import "./Menu.css";
 //Dependencies
-import { useAnimate, motion } from "framer-motion";
 import { useState } from "react";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { MdClose } from "react-icons/md";
-
+import { AiOutlineCaretDown } from "react-icons/ai";
 const Menu = () => {
   const [menuExpanded, setMenuExpanded] = useState(false);
 
   return (
     <div className="menu">
-      <div className="menu-item" style={{ backgroundImage: "none", backgroundColor: "white", border: "none", paddingLeft: "10px", padding: "5px" }}>
-        <GiHamburgerMenu style={{ transform: "scale(0.9)", color: "orangered"}} />
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          width: "135px",
+          height: "50px",
+          backgroundImage: "none",
+          backgroundColor: "#fdfdfd",
+          padding: "0px 15px",
+        }}>
+        <p style={{ color: "orangered" }}>Menu</p>
+        <AiOutlineCaretDown
+          className="menu-icon"
+          onClick={() => {
+            setMenuExpanded(!menuExpanded);
+          }}
+          style={menuExpanded ? {width: "10px", height: "10px", transform: "rotate(180deg)"} : { width: "10px", height: "10px"}}
+        />
       </div>
-      <div className="menu-item" style={{ backgroundImage: "none", backgroundColor: "white"}}></div>
-      <div className="menu-item"></div>
-      <div className="menu-item">
-        <p>About</p>
+      <div
+        className={"subs-closed"}
+        style={menuExpanded ? { color: "black", height: "30px", backgroundPositionY: "-20px" } : {}}>
+        <p style={menuExpanded ? { transform: "scaleY(1)" } : {}}>About</p>
       </div>
-      <div className="menu-item">
-        <p>Bio</p>
+      <div
+        className={"subs-closed"}
+        style={menuExpanded ? { color: "black", height: "30px", backgroundPositionY: "-20px" } : {}}>
+        <p style={menuExpanded ? { transform: "scaleY(1)" } : {}}>Coffee Houses</p>
       </div>
-      <div className="menu-item">
-        <p>Resume</p>
+      <div
+        className={"subs-closed"}
+        style={menuExpanded ? { color: "black", height: "30px", backgroundPositionY: "-20px" } : {}}>
+        <p style={menuExpanded ? { transform: "scaleY(1)" } : {}}>Arcades</p>
       </div>
-      <div className="menu-item">
-        <p>Research</p>
+      <div
+        className={"subs-closed"}
+        style={menuExpanded ? { color: "black", height: "30px", backgroundPositionY: "-20px" } : {}}>
+        <p style={menuExpanded ? { transform: "scaleY(1)" } : {}}>Detroit</p>
       </div>
-      <div className="menu-item">
-        <p>Work</p>
+      <div
+        className={"subs-closed"}
+        style={menuExpanded ? { color: "black", height: "30px", backgroundPositionY: "-20px" } : {}}>
+        <p style={menuExpanded ? { transform: "scaleY(1)" } : {}}>Niagara</p>
       </div>
-      <div className="menu-item">
-        <p>Seward</p>
+      <div
+        className={"subs-closed"}
+        style={menuExpanded ? { color: "black", height: "30px", backgroundPositionY: "-20px" } : {}}>
+        <p style={menuExpanded ? { transform: "scaleY(1)" } : {}}>Italy 1</p>
       </div>
-      <div className="menu-item">
-        <p>Ash</p>
+      <div
+        className={"subs-closed"}
+        style={menuExpanded ? { color: "black", height: "30px", backgroundPositionY: "-20px" } : {}}>
+        <p style={menuExpanded ? { transform: "scaleY(1)" } : {}}>Italy 2</p>
       </div>
-      <div className="menu-item">
-        <p>Niagara</p>
+      <div
+        className={"subs-closed"}
+        style={menuExpanded ? { color: "black", height: "30px", backgroundPositionY: "-20px" } : {}}>
+        <p style={menuExpanded ? { transform: "scaleY(1)" } : {}}>Toronto</p>
       </div>
-      <div className="menu-item">
-        <p>Italy</p>
+      <div
+        className={"subs-closed"}
+        style={menuExpanded ? { color: "black", height: "30px", backgroundPositionY: "-20px" } : {}}>
+        <p style={menuExpanded ? { transform: "scaleY(1)" } : {}}>Chile</p>
       </div>
-      <div className="menu-item">
-        <p>Chile</p>
+      <div
+        className={"subs-closed"}
+        style={menuExpanded ? { color: "black", height: "30px", backgroundPositionY: "-20px" } : {}}>
+        <p style={menuExpanded ? { transform: "scaleY(1)" } : {}}>Tobermory</p>
       </div>
-      <div className="menu-item">
-        <p>Toronto</p>
+      <div
+        className={"subs-closed"}
+        style={menuExpanded ? { color: "black", height: "30px", backgroundPositionY: "-20px" } : {}}>
+        <p style={menuExpanded ? { transform: "scaleY(1)" } : {}}>Writing</p>
       </div>
-      <div className="menu-item">
-        <p>Tobermory</p>
+      <div
+        className={"subs-closed"}
+        style={menuExpanded ? { color: "black", height: "30px", backgroundPositionY: "-20px" } : {}}>
+        <p style={menuExpanded ? { transform: "scaleY(1)" } : {}}>Furniture</p>
       </div>
-      <div className="menu-item">
-        <p>Personal</p>
-      </div>
-      <div className="menu-item"></div>
-
-      <div className="menu-item" style={{ backgroundImage: "none", backgroundColor: "white" }}></div>
+      <div
+        className={"subs-closed"}
+        style={menuExpanded ? { color: "black", height: "25px", backgroundPositionY: "-20px" } : {}}></div>
     </div>
   );
 };

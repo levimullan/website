@@ -1,47 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap");
+
 .menu {
   grid-column: 1;
   grid-row: 1 / 5;
-  height: 100%;
+  height: fit-content;
   display: flex;
   flex-direction: column;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
-  font-size: 1.6em;
-  font-weight: lighter;
-}
-
-.menu-item {
-  display: flex;
-  padding-left: 15px;
-  justify-content: flex-start;
-  align-items: center;
-  flex: 1;
-  background-color: white;
-  position: relative;
-  vertical-align: center;
-}
-
-.menu-item:nth-child(even) {
-  border-top: 0.5px solid rgb(228, 228, 228);
-  background-image: linear-gradient(to bottom, rgba(53, 64, 76, 0.1) 0%, rgba(50, 55, 76, 0.01) 100%);
-  background-color: rgba(169, 171, 174, 0.001);
-
-  p {
-    display: inline-block;
-    -webkit-transform: scale(1, 0.5); /* Safari and Chrome */
-    color: rgb(206, 206, 206);
-  }
-}
-.menu-item:nth-child(odd) {
-  border-top: 0.5px solid rgb(228, 228, 228);
   background-color: white;
   p {
-    display: inline-block;
-    -webkit-transform: scale(1, 0.5); /* Safari and Chrome */
-    color: rgb(230, 230, 230);
+    font-family: "Libre Baskerville", serif;
+    font-weight: 700;
   }
 }
 
-p:hover {
-  color: black;
+.menu-icon {
+  color: orangered;
+  width: 10px;
+  height: 10px;
   cursor: pointer;
+  transition: transform 0.5s ease-in-out;
+}
+
+.subs-closed {
+  /* layout */
+  display: flex;
+  font-weight: lighter;
+  padding-left: 15px;
+  align-items: center;
+  /* static properties */
+  border-top: 0.5px solid rgba(228, 228, 228, 0.5);
+  /* transition properties */
+  height: 18px;
+  background-image: linear-gradient(rgb(237, 237, 237) 0%, rgb(255, 255, 255) 25%), linear-gradient(rgba(0,0,0,1), rgba(255, 255, 255, 1));
+  background-size: 150px 200px;
+  background-repeat: no-repeat;
+  background-position-y: 0px;
+  transition:
+    transform 0.5s ease-in-out,
+    height 0.5s ease-in-out,
+    background-position-y 0.5s ease-in-out;
+
+  p {
+    font-size: 0.8em;
+    color: lightgray;
+    font-family: "Libre Baskerville", serif;
+    font-weight: 400;
+    font-style: normal;
+    transform: scaleY(0.6) rotateX(45deg);
+    perspective: 130px;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  p:hover {
+    color: black;
+    font-weight: 700;
+    cursor: pointer;
+  }
+}
+
+.subs-closed:nth-child(even) {
+  background-image: none;
+}
+
+.libre-baskerville-regular {
+  font-family: "Libre Baskerville", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.libre-baskerville-bold {
+  font-family: "Libre Baskerville", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.libre-baskerville-regular-italic {
+  font-family: "Libre Baskerville", serif;
+  font-weight: 400;
+  font-style: italic;
 }

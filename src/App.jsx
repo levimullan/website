@@ -14,6 +14,7 @@ import sound from "./assets/click.wav";
 import { useState, useEffect, createContext } from "react";
 import { HiOutlineMail } from "react-icons/hi";
 import { RiSearchEyeLine, RiLinkedinLine } from "react-icons/ri";
+import TestMenu from "./Components/Testing/TestMenu.jsx";
 // Context Exports
 export const PageContext = createContext();
 
@@ -43,7 +44,6 @@ function App() {
       <div className="app">
         <div className="app-grid">
           <Menu />
-
           <div className="tools">
             <div
               className="tool"
