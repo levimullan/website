@@ -14,19 +14,3 @@
     scale: 100%;
   }
 }
-
-.greyWrap {
-  background-color: rgba(0, 0, 0, 0.5);
-  animation-name: greyOut;
-  animation-duration: 0.5s;
-  animation-timing-function: ease-in-out;
-}
-
-@keyframes greyOut {
-  from {
-    background-color: transparent;
-  }
-  to {
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-}

@@ -1,96 +1,61 @@
 // Styles
 import "./Menu.css";
 //Dependencies
-import { useState } from "react";
-import { AiOutlineCaretDown } from "react-icons/ai";
-const Menu = () => {
+import { useState, useEffect } from "react";
+
+const Menu = ({ menuObject, setPage, page }) => {
   const [menuExpanded, setMenuExpanded] = useState(false);
+  const [subs, setMenuSubs] = useState(null);
+
+  const handleClick = () => {
+    if (subs) {
+      console.log(subs, menuExpanded);
+      setMenuExpanded(!menuExpanded);
+    }
+  };
+
+  useEffect(() => {
+    if (menuObject.subs) {
+      setMenuSubs(menuObject.subs);
+    }
+  }, []);
 
   return (
-    <div className="menu">
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          width: "135px",
-          height: "50px",
-          backgroundImage: "none",
-          backgroundColor: "#fdfdfd",
-          padding: "0px 15px",
-        }}>
-        <p style={{ color: "orangered" }}>Menu</p>
-        <AiOutlineCaretDown
-          className="menu-icon"
-          onClick={() => {
-            setMenuExpanded(!menuExpanded);
-          }}
-          style={menuExpanded ? {width: "10px", height: "10px", transform: "rotate(180deg)"} : { width: "10px", height: "10px"}}
-        />
+    <div
+      className="menu"
+      onMouseEnter={() => setMenuExpanded(true)}
+      onMouseLeave={() => setMenuExpanded(false)}
+      style={menuExpanded ? {} : {}}>
+      <div className="menu-title">
+        <h3>{menuObject.title}</h3>
       </div>
       <div
-        className={"subs-closed"}
-        style={menuExpanded ? { color: "black", height: "30px", backgroundPositionY: "-20px" } : {}}>
-        <p style={menuExpanded ? { transform: "scaleY(1)" } : {}}>About</p>
+        style={menuExpanded ? { boxShadow : "-4px 0 3px -3px #00000030"} : { }}
+        class="submenu">
+        {subs &&
+          subs.map((sub) => {
+            return (
+              <div
+                className="subs-closed"
+                key={sub.title}
+                style={
+                  menuExpanded
+                    ? {
+                        color: "black",
+                        height: "30px",
+                        backgroundPositionY: "-20px",
+                      }
+                    : {}
+                }>
+                <p
+                  OnClick={() => setPage(sub.title)}
+                  style={menuExpanded ? { transform: "scaleY(1)",   color: "rgb(157, 157, 157)" } : {}}>
+                  {sub.title}
+                </p>
+              </div>
+            );
+          })}
       </div>
-      <div
-        className={"subs-closed"}
-        style={menuExpanded ? { color: "black", height: "30px", backgroundPositionY: "-20px" } : {}}>
-        <p style={menuExpanded ? { transform: "scaleY(1)" } : {}}>Coffee Houses</p>
-      </div>
-      <div
-        className={"subs-closed"}
-        style={menuExpanded ? { color: "black", height: "30px", backgroundPositionY: "-20px" } : {}}>
-        <p style={menuExpanded ? { transform: "scaleY(1)" } : {}}>Arcades</p>
-      </div>
-      <div
-        className={"subs-closed"}
-        style={menuExpanded ? { color: "black", height: "30px", backgroundPositionY: "-20px" } : {}}>
-        <p style={menuExpanded ? { transform: "scaleY(1)" } : {}}>Detroit</p>
-      </div>
-      <div
-        className={"subs-closed"}
-        style={menuExpanded ? { color: "black", height: "30px", backgroundPositionY: "-20px" } : {}}>
-        <p style={menuExpanded ? { transform: "scaleY(1)" } : {}}>Niagara</p>
-      </div>
-      <div
-        className={"subs-closed"}
-        style={menuExpanded ? { color: "black", height: "30px", backgroundPositionY: "-20px" } : {}}>
-        <p style={menuExpanded ? { transform: "scaleY(1)" } : {}}>Italy 1</p>
-      </div>
-      <div
-        className={"subs-closed"}
-        style={menuExpanded ? { color: "black", height: "30px", backgroundPositionY: "-20px" } : {}}>
-        <p style={menuExpanded ? { transform: "scaleY(1)" } : {}}>Italy 2</p>
-      </div>
-      <div
-        className={"subs-closed"}
-        style={menuExpanded ? { color: "black", height: "30px", backgroundPositionY: "-20px" } : {}}>
-        <p style={menuExpanded ? { transform: "scaleY(1)" } : {}}>Toronto</p>
-      </div>
-      <div
-        className={"subs-closed"}
-        style={menuExpanded ? { color: "black", height: "30px", backgroundPositionY: "-20px" } : {}}>
-        <p style={menuExpanded ? { transform: "scaleY(1)" } : {}}>Chile</p>
-      </div>
-      <div
-        className={"subs-closed"}
-        style={menuExpanded ? { color: "black", height: "30px", backgroundPositionY: "-20px" } : {}}>
-        <p style={menuExpanded ? { transform: "scaleY(1)" } : {}}>Tobermory</p>
-      </div>
-      <div
-        className={"subs-closed"}
-        style={menuExpanded ? { color: "black", height: "30px", backgroundPositionY: "-20px" } : {}}>
-        <p style={menuExpanded ? { transform: "scaleY(1)" } : {}}>Writing</p>
-      </div>
-      <div
-        className={"subs-closed"}
-        style={menuExpanded ? { color: "black", height: "30px", backgroundPositionY: "-20px" } : {}}>
-        <p style={menuExpanded ? { transform: "scaleY(1)" } : {}}>Furniture</p>
-      </div>
-      <div
-        className={"subs-closed"}
-        style={menuExpanded ? { color: "black", height: "25px", backgroundPositionY: "-20px" } : {}}></div>
     </div>
   );
 };

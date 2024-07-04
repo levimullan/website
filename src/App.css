@@ -1,13 +1,16 @@
 .app {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
+  flex-direction: row;
+  justify-content: safe center;
+  align-items: safe center;
+  min-width: 100%;
+  min-height: 100%;
+  overflow: scroll;
+  background-color: snow;
 }
 
 .app-grid {
+  margin: 30px;
   display: grid;
   grid-template-columns: repeat(10, 135px);
   grid-template-rows: repeat(6, 135px);
@@ -15,6 +18,8 @@
 }
 
 .tools {
+  color: rgb(157, 157, 157);
+  position: relative;
   grid-column: 1;
   grid-row: 5;
   display: grid;
@@ -26,25 +31,29 @@
 }
 
 .tool {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: white;
   width: 100%;
   height: 100%;
-  color: orangered;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);}
+  box-shadow: -1px 0 1px 1.5px #00000030;
+  transition:
+    box-shadow 0.2s ease-in-out,
+    color 0.2s ease-in-out;
+}
 
 .tool:hover {
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: -0.5px 0 0.5px 1px #00000030;
   cursor: pointer;
   color: black;
 }
 
-svg {
+.tool svg {
   transform: scale(1.6);
 }
 
 a {
-  color: black;
+  color: rgb(157, 157, 157);
 }

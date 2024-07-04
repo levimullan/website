@@ -62,13 +62,10 @@ const ImageFlipper = ({ col, row, toDisplay, project }) => {
         }}>
         <motion.div
           className="new-flip-card-inner"
-          style={{
-            // transform: flipped ? `${transformOp}` : "", // TODO: move this to a gsap
-            transition: "transform 0.8s", //TODO: move this to a gsap
-            transformStyle: "preserve-3d",
-          }}
+          style={flipped && transformOp ? { boxShadow: "1px 0 1px 1.5px #00000030" } : {}}
           animate={transformOp ? { rotateY: flipped ? 180 : 0 } : { rotateX: flipped ? 180 : 0 }}
           transition={{
+            delay: 0.2,
             duration: 0.3,
             ease: "linear",
           }}>
@@ -85,7 +82,7 @@ const ImageFlipper = ({ col, row, toDisplay, project }) => {
                 <>
                   <i style={{ fontSize: "0.8em" }}>{cardProject.subTitle}</i>
                   <hr />
-                  <p style={{ fontSize: "0.8em", marginTop: "5px" }}>{cardProject.brief}</p>
+                  {/* <p style={{ fontSize: "0.8em", marginTop: "5px" }}>{cardProject.brief}</p> */}
                 </>
               )}
             </div>

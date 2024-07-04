@@ -4,6 +4,8 @@ import "./Magnify.css";
 import { useState, useEffect, useRef } from "react";
 
 const MagnifyButton = ({ magState }) => {
+  const [frameHeight, setFrameHeight] = useState(null);
+  const [frameWidth, setFrameWidth] = useState(null);
   const [xPos, setXPos] = useState(null);
   const [yPos, setYPos] = useState(null);
   const magnifyingGlass = useRef(null);
@@ -15,16 +17,12 @@ const MagnifyButton = ({ magState }) => {
   const addStyles = (el, styles) => Object.assign(el.style, styles);
 
   const getCanvas = async () => {
-    const appClone = await document.body.cloneNode(true);
-    addStyles(appClone, {
-      position: "absolute",
-      left: `0`,
-      top: `0`,
-      height: "100vh",
-      width: "100vw",
+    const bodyClone = document.body.cloneNode(true);
+    addStyles(bodyClone, {
+      position: "relative",
       transform: `scale(${SCALE})`,
     });
-    magnifyingGlass.current.appendChild(appClone);
+    magnifyingGlass.current.appendChild(bodyClone);
     shiftBackground();
   };
 
@@ -34,18 +32,16 @@ const MagnifyButton = ({ magState }) => {
   };
 
   const shiftBackground = () => {
-    let shiftX = -(SCALE * xPos) + SCALE * SIZE + SIZE + SIZE / 3 + 10;
-    let shiftY = -(SCALE * yPos) + SCALE * SIZE + 25;
+    let shiftX = xPos;
+    let shiftY = yPos;
     magnifyingGlass.current.children[0].style.left = shiftX + "px";
     magnifyingGlass.current.children[0].style.top = shiftY + "px";
   };
 
-  const cleanUpFunction = () => {
-    magnifyingGlass.current.classList.add("growMag");
-    wrapper.current.classList.add("greyWrap");
-  };
-
   useEffect(() => {
+    setFrameHeight(document.documentElement.clientHeight);
+    setFrameWidth(document.documentElement.clientWidth);
+    console.log(frameHeight, frameWidth);
     if (magState && magnifyingGlass.current.children[0]) {
       shiftBackground();
     }
@@ -73,20 +69,13 @@ const MagnifyButton = ({ magState }) => {
         <div
           ref={wrapper}
           style={{
-            position: "absolute",
-            top: "0px",
-            left: "0px",
-            width: "100%",
-            height: "100%",
+            position: "relative",
             zIndex: "2",
-            overflow: "hidden",
           }}>
           <div
             ref={magnifyingGlass}
             style={{
               position: "absolute",
-              padding: "0",
-              margin: "0",
               height: `${SIZE}px`,
               width: `${SIZE}px`,
               left: `${xPos - SIZE / 2}px`,

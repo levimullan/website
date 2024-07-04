@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap");
-
 .spotify-widget {
   /* layout */
   grid-column: 1;
@@ -10,6 +8,7 @@
   outline: 4px solid white;
   outline-offset: -4px;
   perspective: 300px;
+  background-color: black;
 }
 
 .nothing-playing {
@@ -28,10 +27,11 @@
   /* layout */
   height: 100%;
   /* styles */
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: -1px 0 1px 1.5px #00000030;
   /* animation properties */
   transform-style: preserve-3d;
   transform-origin: center;
+  transition: box-shadow 1s ease-in-out;
 }
 
 .playing-front,
@@ -55,8 +55,9 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 10px;
-  background-color: white;
+  background-color: snow;
   color: black;
+  border: 4px solid white;
   transform: rotateY(180deg);
   a {
     text-decoration: none;
@@ -75,7 +76,6 @@ audio {
 }
 
 .title {
-  font-family: "Libre Baskerville", serif;
   font-weight: 700;
   font-style: normal;
   display: -webkit-box;
@@ -88,7 +88,6 @@ audio {
 .artist {
   color: var(--inactive-col);
   display: -webkit-box;
-  font-family: "Libre Baskerville", serif;
   font-weight: 200;
   font-style: italic;
   -webkit-line-clamp: 1;

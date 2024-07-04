@@ -39,7 +39,7 @@ const Cover = ({ setter }) => {
   const page = useContext(PageContext);
 
   return (
-    <div className={styles.grid}>
+    <div className={styles.covergrid}>
       <Flipper col={1} row={"1 / 3"} toDisplay={bazaarAxo} project={0} />
       <Flipper col={"2 / 6"} row={5} toDisplay={typologyTraverse} project={6} />
       <Flipper col={"6 / 8"} row={"3 / 6"} toDisplay={typologyAxo} project={6} />
@@ -59,15 +59,15 @@ const Cover = ({ setter }) => {
       <Flipper col={8} row={1} toDisplay={sleeve2} project={0} />
       <Flipper col={7} row={1} toDisplay={cryptPlan} project={5} />
       <Flipper col={8} row={5} toDisplay={chairPrototype} project={8} />
-      <Flipper col={9} row={"4 / 6"} toDisplay={digfem1} project={8} />
-      <Flipper col={5} row={6} toDisplay={digfem2} project={8} />
-      <Flipper col={9} row={"1 / 3"} toDisplay={sketch} project={8} />
+      <Flipper col={9} row={"4 / 6"} toDisplay={digfem1} project={12} />
+      <Flipper col={5} row={6} toDisplay={digfem2} project={12} />
+      <Flipper col={9} row={"1 / 3"} toDisplay={sketch} project={9} />
       <Flipper col={1} row={6} toDisplay={chair2} project={8} />
-      <Flipper col={"6 / 9"} row={6} toDisplay={chile1} project={8} />
-      <Flipper col={9} row={3} toDisplay={plan1} project={8} />
-      <Flipper col={"4 / 6"} row={3} toDisplay={typesection} project={8} />
-      <Flipper col={4} row={6} toDisplay={colbert} project={8} />
-      <Flipper col={9} row={6} toDisplay={dresscolbert} project={8} />
+      <Flipper col={"6 / 9"} row={6} toDisplay={chile1} project={10} />
+      <Flipper col={9} row={3} toDisplay={plan1} project={5} />
+      <Flipper col={"4 / 6"} row={3} toDisplay={typesection} project={6} />
+      <Flipper col={4} row={6} toDisplay={colbert} project={0} />
+      <Flipper col={9} row={6} toDisplay={dresscolbert} project={0} />
     </div>
   );
 };

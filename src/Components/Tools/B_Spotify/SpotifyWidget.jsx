@@ -86,9 +86,11 @@ function SpotifyWidget() {
             className="playing-card"
             key={"playingCard"}
             initial={{ opacity: 0, rotateY: 0 }}
-            animate={isFlipped ? { opacity: 1, rotateY: 180 } : { opacity: 1 }}
+            animate={isFlipped ? { opacity: 1, rotateY: 180} : { opacity: 1 }}
             transition={{ duration: 0.7, ease: "easeInOut" }}
-            exit={{ opacity: 0 }}>
+            exit={{ opacity: 0 }}
+            style={isFlipped ? { boxShadow: "none" } : {}}
+          >
             <div className="playing-front">
               <img src={albumCoverUrl} />
             </div>
