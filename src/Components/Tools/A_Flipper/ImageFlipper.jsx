@@ -62,7 +62,6 @@ const ImageFlipper = ({ col, row, toDisplay, project }) => {
         }}>
         <motion.div
           className="new-flip-card-inner"
-          style={flipped && transformOp ? { boxShadow: "1px 0 1px 1.5px #00000030" } : {}}
           animate={transformOp ? { rotateY: flipped ? 180 : 0 } : { rotateX: flipped ? 180 : 0 }}
           transition={{
             delay: 0.2,

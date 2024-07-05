@@ -36,14 +36,20 @@ function App() {
   }, []);
 
   useEffect(() => {
-    audio.play();
+    if (navigator.userActivation.hasbeenActive) {
+      audio.play();
+    }
   }, [magnifyState]);
+
+  useEffect(() => {
+    console.log(page);
+  }, [page])
 
   return (
     <div id="app" className="app">
       {/* <Magnify magState={magnifyState} /> */}
       <div className="app-grid">
-        <div>
+        <div className="grid-menu">
           {MenuData.map((item) => {
             return <Menu key={item.title} menuObject={item} setPage={setPage} page={page} />;
           })}
