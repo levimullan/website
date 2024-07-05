@@ -18,13 +18,9 @@ const Menu = ({ menuObject, setPage, page }) => {
   }, []);
 
   return (
-    <div
-      className="menu"
-      onMouseEnter={() => setMenuExpanded(true)}
-      onMouseLeave={() => setMenuExpanded(false)}
-      style={menuExpanded ? {} : {}}>
+    <div className="menu" onMouseEnter={() => setMenuExpanded(true)} onMouseLeave={() => setMenuExpanded(false)}>
       <div className="menu-title">
-        <h3>{menuObject.title}</h3>
+        <h3 style={menuExpanded ? { color: "black" } : {}}>{menuObject.title}</h3>
       </div>
       <div style={menuExpanded ? { boxShadow: "-4px 0 3px -3px #00000020" } : {}} className="submenu">
         {subs &&
@@ -44,7 +40,7 @@ const Menu = ({ menuObject, setPage, page }) => {
                 }>
                 <p
                   onClick={() => handleClick(sub)}
-                  style={menuExpanded ? { transform: "scaleY(1)", color: "rgb(157, 157, 157)" } : {}}>
+                  style={menuExpanded ? { transform: "scaleY(1)", color: "black" } : {}}>
                   {sub.title}
                 </p>
               </div>
