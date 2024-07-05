@@ -36,7 +36,7 @@
   border-top: 0.5px solid rgba(228, 228, 228, 0.5);
   /* transition properties */
 
-  height: 9.7px;
+  height: 20px;
   background-image: linear-gradient(rgb(237, 237, 237) 0%, rgb(255, 255, 255) 25%),
     linear-gradient(rgba(0, 0, 0, 1), rgba(255, 255, 255, 1));
   background-size: 150px 200px;
@@ -52,7 +52,7 @@
   p {
     font-weight: bolder;
     color: rgba(180, 180, 180, 0.2);
-    transform: scaleY(0.3) rotateX(45deg);
+    transform: scaleY(0.8) rotateX(45deg);
     perspective: 130px;
     transform-style: preserve-3d;
     transition:
