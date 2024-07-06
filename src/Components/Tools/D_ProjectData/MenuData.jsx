@@ -1,5 +1,3 @@
-import React from "react";
-
 const data = [
   {
     title: "About",
@@ -15,15 +13,12 @@ const data = [
       { title: "Greenwood" },
       { title: "El Chalten" },
       { title: "Tobermory" },
+      {},
     ],
   },
   {
     title: "Personal",
-    subs: [
-      { title: "Writing" },
-      { title: "Avatars" },
-      { title: "Furniture" },
-    ],
+    subs: [{ title: "Writing" }, { title: "Avatars" }, { title: "Furniture" }, {}],
   },
 ];
 

@@ -12,7 +12,7 @@ import SpotifyWidget from "./Components/Tools/B_Spotify/SpotifyWidget";
 // import Crypt from "./Components/04_Crypt/Crypt.jsx";
 import sound from "./assets/click.wav";
 // Dependencies
-import { useState, useEffect, createContext } from "react";
+import { useState, useEffect, createContext, useRef } from "react";
 import { HiOutlineMail } from "react-icons/hi";
 import { RiSearchEyeLine, RiLinkedinLine } from "react-icons/ri";
 // Context Exports
@@ -21,6 +21,8 @@ export const PageContext = createContext();
 function App() {
   const [page, setPage] = useState(null);
   const [magnifyState, setMagnifyState] = useState(false);
+  const app = useRef(null);
+  const appGrid = useRef(null);
 
   var audio = new Audio(sound);
   audio.volume = 0.2;
@@ -43,12 +45,11 @@ function App() {
 
   useEffect(() => {
     console.log(page);
-  }, [page])
+  }, [page]);
 
   return (
-    <div id="app" className="app">
-      {/* <Magnify magState={magnifyState} /> */}
-      <div className="app-grid">
+    <div ref={app} id="app" className="app">
+      <div ref={appGrid} id="app-grid" className="app-grid">
         <div className="grid-menu">
           {MenuData.map((item) => {
             return <Menu key={item.title} menuObject={item} setPage={setPage} page={page} />;
@@ -72,9 +73,10 @@ function App() {
             <FiGithub />
           </a>
         </div>
-        <Cover setter={setPage} />
+        <Cover setPage={setPage} page={page} />
         <SpotifyWidget />
       </div>
+      <Magnify magState={magnifyState} nodeToClone={appGrid} />
     </div>
   );
 }

@@ -3,27 +3,37 @@ import "./Magnify.css";
 // Dependencies
 import { useState, useEffect, useRef } from "react";
 
-const MagnifyButton = ({ magState }) => {
-  const [frameHeight, setFrameHeight] = useState(null);
-  const [frameWidth, setFrameWidth] = useState(null);
+const MagnifyButton = ({ magState, nodeToClone }) => {
   const [xPos, setXPos] = useState(null);
   const [yPos, setYPos] = useState(null);
+  const [offsetTop, setOffsetTop] = useState(null);
+  const [offsetLeft, setOffsetLeft] = useState(null);
   const magnifyingGlass = useRef(null);
-  const wrapper = useRef(null);
 
   const SCALE = 2;
   const SIZE = 300;
 
   const addStyles = (el, styles) => Object.assign(el.style, styles);
 
+  const setOffsets = () => {
+    if (nodeToClone) {
+      setOffsetTop(nodeToClone.current.getBoundingClientRect().top);
+      setOffsetLeft(nodeToClone.current.getBoundingClientRect().left);
+      console.log(offsetTop, offsetLeft);
+    }
+  };
+
   const getCanvas = async () => {
-    const bodyClone = document.body.cloneNode(true);
-    addStyles(bodyClone, {
-      position: "relative",
+    setOffsets();
+    const clone = await nodeToClone.current.cloneNode(true);
+    addStyles(clone, {
+      position: "absolute",
+      transformOrigin: "top left",
+      left: `${-xPos * 2 + 2 * offsetLeft + SIZE / 2}px`,
+      top: `${-yPos * 2 + 2 * offsetTop + SIZE / 2}px`,
       transform: `scale(${SCALE})`,
     });
-    magnifyingGlass.current.appendChild(bodyClone);
-    shiftBackground();
+    magnifyingGlass.current.appendChild(clone);
   };
 
   const handleMouseMove = async (event) => {
@@ -32,17 +42,14 @@ const MagnifyButton = ({ magState }) => {
   };
 
   const shiftBackground = () => {
-    let shiftX = xPos;
-    let shiftY = yPos;
+    let shiftX = -xPos * 2 + 2 * offsetLeft + SIZE / 2;
+    let shiftY = -yPos * 2 + 2 * offsetTop + SIZE / 2;
     magnifyingGlass.current.children[0].style.left = shiftX + "px";
     magnifyingGlass.current.children[0].style.top = shiftY + "px";
   };
 
   useEffect(() => {
-    setFrameHeight(document.documentElement.clientHeight);
-    setFrameWidth(document.documentElement.clientWidth);
-    console.log(frameHeight, frameWidth);
-    if (magState && magnifyingGlass.current.children[0]) {
+    if (magState) {
       shiftBackground();
     }
   }, [xPos, yPos]);
@@ -51,7 +58,6 @@ const MagnifyButton = ({ magState }) => {
     if (magState) {
       getCanvas();
       magnifyingGlass.current.classList.add("growMag");
-      wrapper.current.classList.add("greyWrap");
     }
   }, [magState]);
 
@@ -60,6 +66,7 @@ const MagnifyButton = ({ magState }) => {
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("resize", setOffsets);
     };
   }, []);
 
@@ -67,24 +74,17 @@ const MagnifyButton = ({ magState }) => {
     <>
       {magState && (
         <div
-          ref={wrapper}
+          ref={magnifyingGlass}
           style={{
-            position: "relative",
-            zIndex: "2",
-          }}>
-          <div
-            ref={magnifyingGlass}
-            style={{
-              position: "absolute",
-              height: `${SIZE}px`,
-              width: `${SIZE}px`,
-              left: `${xPos - SIZE / 2}px`,
-              top: `${yPos - SIZE / 2}px`,
-              overflow: "hidden",
-              borderRadius: "50%",
-              zIndex: "1",
-            }}></div>
-        </div>
+            position: "absolute",
+            height: `${SIZE}px`,
+            width: `${SIZE}px`,
+            top: `${yPos - SIZE / 2}px`,
+            left: `${xPos - SIZE / 2}px`,
+            overflow: "hidden",
+            borderRadius: "50%",
+            zIndex: "1",
+          }}></div>
       )}
     </>
   );

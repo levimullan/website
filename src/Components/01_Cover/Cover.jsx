@@ -31,13 +31,9 @@ import dresscolbert from "../../assets/dresscolbert.png";
 //Styles
 import styles from "./styles.module.css";
 //Dependencies
-import { useContext } from "react";
-import { PageContext } from "../../App.jsx";
 import Flipper from "../Tools/A_Flipper/ImageFlipper.jsx";
 
-const Cover = ({ setter }) => {
-  const page = useContext(PageContext);
-
+const Cover = ({ setPage, page }) => {
   return (
     <div className={styles.covergrid}>
       <Flipper col={1} row={"1 / 3"} toDisplay={bazaarAxo} project={0} />

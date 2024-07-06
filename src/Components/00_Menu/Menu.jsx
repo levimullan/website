@@ -5,9 +5,11 @@ import { useState, useEffect } from "react";
 
 const Menu = ({ menuObject, setPage, page }) => {
   const [menuExpanded, setMenuExpanded] = useState(false);
+  const [menuActive, setMenuActive] = useState(false);
   const [subs, setMenuSubs] = useState([]);
 
   const handleClick = (newPage) => {
+    console.log("setting page from ", page, "to", newPage);
     setPage(newPage);
   };
 
@@ -17,8 +19,23 @@ const Menu = ({ menuObject, setPage, page }) => {
     }
   }, []);
 
+  useEffect(() => {
+    if (subs.includes(page)) {
+      setMenuActive(true);
+    } else {
+      setMenuActive(false);
+      setMenuExpanded(false);
+    }
+  }, [page]);
+
+  const handleHover = () => {
+    if (!menuActive) {
+      setMenuExpanded(!menuExpanded);
+    }
+  };
+
   return (
-    <div className="menu" onMouseEnter={() => setMenuExpanded(true)} onMouseLeave={() => setMenuExpanded(false)}>
+    <div className="menu" onMouseEnter={() => handleHover()} onMouseLeave={() => handleHover()}>
       <div className="menu-title">
         <h3 style={menuExpanded ? { color: "black" } : {}}>{menuObject.title}</h3>
       </div>
@@ -40,7 +57,7 @@ const Menu = ({ menuObject, setPage, page }) => {
                 }>
                 <p
                   onClick={() => handleClick(sub)}
-                  style={menuExpanded ? { transform: "scaleY(1)", color: "black" } : {}}>
+                  style={menuExpanded ? { cursor: "pointer", transform: "scaleY(1)", color: "black", textDecoration: (page == sub) ? "underline" : ""} : {}}>
                   {sub.title}
                 </p>
               </div>

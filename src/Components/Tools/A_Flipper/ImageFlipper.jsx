@@ -5,8 +5,10 @@ import sound from "./assets/click.wav";
 // Custom imports
 import ProjectDescriptions from "../D_ProjectData/ProjectDescriptions.jsx";
 // Project Dependencies
+import { useContext } from "react";
+import { PageContext } from "../../../App.jsx";
 import React, { useEffect, useState, useRef } from "react";
-import { AnimatePresence, cubicBezier, motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 const ImageFlipper = ({ col, row, toDisplay, project }) => {
   const [flipped, setFlipped] = useState(false);
@@ -17,6 +19,8 @@ const ImageFlipper = ({ col, row, toDisplay, project }) => {
   const [mouseEnter, setMouseEnter] = useState(null);
   const container = useRef(null);
   const image = useRef(null);
+
+  const page = useContext(PageContext);
 
   var audio = new Audio(sound);
   audio.volume = 0.2;
@@ -33,10 +37,8 @@ const ImageFlipper = ({ col, row, toDisplay, project }) => {
     let ratio = Math.round(Math.abs(w / h) * 10) / 10;
     if (ratio < 1.6) {
       setTransformOp(true);
-      // console.log(transformOp);
     } else {
       setTransformOp(false);
-      // console.log(transformOp);
     }
   }
 
@@ -45,63 +47,68 @@ const ImageFlipper = ({ col, row, toDisplay, project }) => {
   }, []);
 
   return (
-    <AnimatePresence>
-      <div
-        ref={container}
-        className="new-flip-card"
-        onMouseEnter={() => {
-          setFlipped(true);
-        }}
-        onMouseLeave={() => {
-          setFlipped(false);
-        }}
-        style={{
-          gridColumn: `${col}`,
-          gridRow: `${row}`,
-          perspective: `${perspectiveVal}px`,
-        }}>
-        <motion.div
-          className="new-flip-card-inner"
-          animate={transformOp ? { rotateY: flipped ? 180 : 0 } : { rotateX: flipped ? 180 : 0 }}
-          transition={{
-            delay: 0.2,
-            duration: 0.3,
-            ease: "linear",
-          }}>
-          <div className="new-flip-card-front">
-            <img className="flipimage" ref={image} src={toDisplay} />
-          </div>
-          <div
-            className="new-flip-card-back"
-            style={transformOp ? { transform: `rotateY(180deg)` } : { transform: "rotateX(180deg)" }}>
-            <div>
-              <h2 style={smallCard ? { fontSize: "0.9em" } : {}}>{cardProject.title}</h2>
-
-              {!smallCard && (
-                <>
-                  <i style={{ fontSize: "0.8em" }}>{cardProject.subTitle}</i>
-                  <hr />
-                  {/* <p style={{ fontSize: "0.8em", marginTop: "5px" }}>{cardProject.brief}</p> */}
-                </>
-              )}
+    <div
+      ref={container}
+      className="new-flip-card"
+      onMouseEnter={() => {
+        setFlipped(true);
+      }}
+      onMouseLeave={() => {
+        setFlipped(false);
+      }}
+      style={{
+        gridColumn: `${col}`,
+        gridRow: `${row}`,
+        perspective: `${perspectiveVal}px`,
+      }}>
+      <AnimatePresence>
+        {!page && (
+          <motion.div
+            key={toDisplay}
+            className="new-flip-card-inner"
+            initial={{}}
+            animate={transformOp ? { rotateY: flipped ? 180 : 0 } : { rotateX: flipped ? 180 : 0 }}
+            exit={transformOp ? { rotateY: 0 } : { rotateX: 0 }}
+            transition={{
+              delay: 0.1,
+              duration: 0.3,
+              ease: "linear",
+            }}>
+            <div className="new-flip-card-front">
+              <img className="flipimage" ref={image} src={toDisplay} />
             </div>
-            <BsBoxArrowInRight
-              className="icon"
-              style={mouseEnter ? { color: "black", cursor: "pointer" } : { color: "gray" }}
-              onMouseEnter={() => {
-                setMouseEnter(true);
-              }}
-              onMouseLeave={() => {
-                setMouseEnter(false);
-              }}
-              onClick={() => {
-                audio.play();
-              }}
-            />
-          </div>
-        </motion.div>
-      </div>
-    </AnimatePresence>
+            <div
+              className="new-flip-card-back"
+              style={transformOp ? { transform: `rotateY(180deg)` } : { transform: "rotateX(180deg)" }}>
+              <div>
+                <h2 style={smallCard ? { fontSize: "0.9em" } : {}}>{cardProject.title}</h2>
+
+                {!smallCard && (
+                  <>
+                    <i style={{ fontSize: "0.8em" }}>{cardProject.subTitle}</i>
+                    <hr />
+                    {/* <p style={{ fontSize: "0.8em", marginTop: "5px" }}>{cardProject.brief}</p> */}
+                  </>
+                )}
+              </div>
+              <BsBoxArrowInRight
+                className="icon"
+                style={mouseEnter ? { color: "black", cursor: "pointer" } : { color: "gray" }}
+                onMouseEnter={() => {
+                  setMouseEnter(true);
+                }}
+                onMouseLeave={() => {
+                  setMouseEnter(false);
+                }}
+                onClick={() => {
+                  audio.play();
+                }}
+              />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   );
 };
 

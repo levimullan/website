@@ -1,9 +1,5 @@
 /* flip card styles */
 
-.new-flip-card {
-  background-color: black;
-}
-
 .new-flip-card-inner {
   position: relative;
   width: 100%;
@@ -24,8 +20,8 @@
 
 .new-flip-card-front {
   padding: 10px;
-  background-color: white;
-  box-shadow: -1px 0 1px 1.5px #00000030;
+  background-color: #ffffff;
+  box-shadow: -1px 0 2px 2px #00000030;
 }
 
 .new-flip-card-back {
@@ -37,7 +33,7 @@
   justify-content: space-between;
   padding: 10px;
   /* background-image: linear-gradient(to top, rgb(247, 219, 208) 0%, rgb(225, 238, 194) 100%); */
-  border: 3px solid black;
+  border: 4px solid white;
   background-color: snow;
 }
 

@@ -56,16 +56,15 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 10px;
-  background-color: snow;
-  color: black;
-  border: 4px solid white;
+  background-image: linear-gradient(lime, rgb(210, 233, 82));
+  box-shadow: -2px 0 2px 2px #00000030;
   transform: rotateY(180deg);
   a {
     text-decoration: none;
-    color: black;
+    color: white;
   }
   a:hover {
-    color: #00c853;
+    color: black;
     cursor: pointer;
   }
 }
@@ -84,6 +83,7 @@ audio {
   line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  color: black;
 }
 
 .artist {
@@ -95,6 +95,7 @@ audio {
   line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
+    color: black;
 }
 
 .libre-baskerville-regular {
